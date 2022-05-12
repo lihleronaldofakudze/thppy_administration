@@ -4,8 +4,8 @@ class Region {
   final int id;
   final String regionName;
   final String countryName;
-  final int status;
-  final String lastUpdate;
+  final String status;
+  final DateTime lastUpdate;
 
   Region({
     required this.id,
@@ -14,4 +14,12 @@ class Region {
     required this.status,
     required this.lastUpdate,
   });
+
+  factory Region.fromJson(Map<String, dynamic> json) => Region(
+        id: json["id"],
+        regionName: json["region_name"],
+        countryName: json["country_name"],
+        status: json["status"],
+        lastUpdate: DateTime.parse(json["last_update"]),
+      );
 }

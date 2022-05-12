@@ -1,27 +1,33 @@
-// id	center_name	country_name	region_name	status	last_update
+// id	name	country_name	region_name	description	logo	status	last_update
 
-class Center {
+class Partner {
   final int id;
-  final String centerName;
+  final String name;
   final String countryName;
   final String regionName;
+  final String description;
+  final String logo;
   final String status;
   final DateTime lastUpdate;
 
-  Center({
+  Partner({
     required this.id,
-    required this.centerName,
+    required this.name,
     required this.countryName,
     required this.regionName,
+    required this.description,
+    required this.logo,
     required this.status,
     required this.lastUpdate,
   });
 
-  factory Center.fromJson(Map<String, dynamic> json) => Center(
+  factory Partner.fromJson(Map<String, dynamic> json) => Partner(
         id: json["id"],
-        centerName: json["center_name"],
+        name: json["name"],
         countryName: json["country_name"],
         regionName: json["region_name"],
+        description: json["description"],
+        logo: json["logo"],
         status: json["status"],
         lastUpdate: DateTime.parse(json["last_update"]),
       );

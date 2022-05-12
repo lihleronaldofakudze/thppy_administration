@@ -3,7 +3,7 @@
 class Country {
   final int id;
   final String countryName;
-  final String lastUpdate;
+  final DateTime lastUpdate;
   final String status;
 
   Country({
@@ -12,4 +12,11 @@ class Country {
     required this.lastUpdate,
     required this.status,
   });
+
+  factory Country.fromJson(Map<String, dynamic> json) => Country(
+        id: json["id"],
+        countryName: json["country_name"],
+        lastUpdate: DateTime.parse(json["last_update"]),
+        status: json["status"],
+      );
 }

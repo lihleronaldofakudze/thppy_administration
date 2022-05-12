@@ -13,6 +13,7 @@ class _TabletHomeState extends State<TabletHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const DrawerWidget(),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0.0,
@@ -37,19 +38,8 @@ class _TabletHomeState extends State<TabletHome> {
           ),
         ],
       ),
-      body: Row(
-        children: [
-          const Expanded(
-            flex: 1,
-            child: DrawerWidget(),
-          ),
-          Expanded(
-            flex: 4,
-            child: Column(
-              children: const [],
-            ),
-          ),
-        ],
+      body: Column(
+        children: const [],
       ),
     );
   }

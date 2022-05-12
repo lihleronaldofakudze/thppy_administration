@@ -10,7 +10,7 @@ class User {
   final String password;
   final String pic;
   final String permissionName;
-  final int status;
+  final String status;
   final DateTime lastUpdate;
 
   User({
@@ -26,4 +26,18 @@ class User {
     required this.status,
     required this.lastUpdate,
   });
+
+  factory User.fromJson(Map<String, dynamic> json) => User(
+        id: json["id"],
+        name: json["name"],
+        surname: json["surname"],
+        phone: json["phone"],
+        email: json["email"],
+        username: json["username"],
+        password: json["password"],
+        pic: json["pic"],
+        permissionName: json["permission_name"],
+        status: json["status"],
+        lastUpdate: DateTime.parse(json["last_update"]),
+      );
 }

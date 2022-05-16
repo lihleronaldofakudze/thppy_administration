@@ -1,5 +1,8 @@
 // id	title	trainer_name	description	pic	status	last_update
 
+import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_datagrid/datagrid.dart';
+
 class Blog {
   final int id;
   final String title;
@@ -28,4 +31,92 @@ class Blog {
         status: json["status"],
         lastUpdate: DateTime.parse(json["last_update"]),
       );
+}
+
+class BlogDataGridSource extends DataGridSource {
+  BlogDataGridSource(this.blogList) {
+    buildDataGridRows();
+  }
+
+  late List<DataGridRow> dataGridRows;
+  late List<Blog> blogList;
+
+  @override
+  DataGridRowAdapter? buildRow(DataGridRow row) {
+    return DataGridRowAdapter(cells: [
+      Container(
+        alignment: Alignment.centerRight,
+        child: Text(
+          row.getCells()[0].value.toString(),
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(fontSize: 18),
+        ),
+      ),
+      Container(
+        alignment: Alignment.centerRight,
+        child: Text(
+          row.getCells()[1].value.toString(),
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(fontSize: 18),
+        ),
+      ),
+      Container(
+        alignment: Alignment.centerRight,
+        child: Text(
+          row.getCells()[2].value.toString(),
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(fontSize: 18),
+        ),
+      ),
+      Container(
+        alignment: Alignment.centerRight,
+        child: Text(
+          row.getCells()[3].value.toString(),
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(fontSize: 18),
+        ),
+      ),
+      Container(
+        alignment: Alignment.centerRight,
+        child: Text(
+          row.getCells()[4].value.toString(),
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(fontSize: 18),
+        ),
+      ),
+      Container(
+        alignment: Alignment.centerRight,
+        child: Text(
+          row.getCells()[5].value.toString(),
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(fontSize: 18),
+        ),
+      ),
+    ]);
+  }
+
+  void buildDataGridRows() {
+    dataGridRows = blogList.map<DataGridRow>((dataGridRow) {
+      return DataGridRow(
+        cells: [
+          DataGridCell<String>(
+            columnName: 'ID',
+            value: dataGridRow.id.toString(),
+          ),
+          DataGridCell<String>(
+            columnName: 'Country Name',
+            value: dataGridRow.description,
+          ),
+          DataGridCell(
+            columnName: 'Last Update',
+            value: dataGridRow.lastUpdate.toString(),
+          ),
+          DataGridCell(
+            columnName: 'Status',
+            value: dataGridRow.status,
+          ),
+        ],
+      );
+    }).toList(growable: false);
+  }
 }

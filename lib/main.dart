@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:thppy_administration/screens/auth_state_screen.dart';
+import 'package:thppy_administration/screens/country_screen.dart';
 import 'package:thppy_administration/screens/forgot_password_screen.dart';
 import 'package:thppy_administration/screens/home_screen.dart';
 import 'package:thppy_administration/screens/login_screen.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => const LoginScreen(),
         '/home': (context) => const HomeScreen(),
         '/forgot_password': (context) => const ForgotPasswordScreen(),
+        '/countries': (context) => const CountryScreen(),
       },
       theme: ThemeData(
         primarySwatch: Colors.red,

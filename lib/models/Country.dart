@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
+import 'package:intl/intl.dart';
 
 class Country {
   final String id;
@@ -60,12 +61,14 @@ class CountryDataGridSource extends DataGridSource {
             value: dataGridRow.countryName,
           ),
           DataGridCell(
-            columnName: 'Last Update',
-            value: dataGridRow.lastUpdate.toString(),
-          ),
-          DataGridCell(
             columnName: 'Status',
             value: dataGridRow.status,
+          ),
+          DataGridCell(
+            columnName: 'Last Update',
+            value: DateFormat('yyyy-MM-dd - kk:mm')
+                .format(dataGridRow.lastUpdate)
+                .toString(),
           ),
         ],
       );

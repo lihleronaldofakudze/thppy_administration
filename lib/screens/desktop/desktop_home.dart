@@ -26,7 +26,7 @@ class _DesktopHomeState extends State<DesktopHome> {
           Expanded(
             flex: 4,
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(13.0),
               child: Column(
                 children: [
                   Row(

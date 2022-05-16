@@ -15,15 +15,50 @@ class WelcomeCardWidget extends StatelessWidget {
               flex: 2,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
-                    'Welcome to the Flutter App',
+                children: [
+                  const Text(
+                    'Welcome to the Administration Panel',
                     style: TextStyle(
                       fontSize: 24,
                     ),
                   ),
-                  Text(
-                      'Try our new Admin Dashboard Template, build with live Ant-Design components. Customize it to your needs and release to production!'),
+                  const Text(
+                    'Try our new Admin Dashboard Template, build with live Ant-Design components. Customize it to your needs and release to production!',
+                    style: TextStyle(
+                      color: Colors.grey,
+                    ),
+                  ),
+                  Stack(
+                    children: [
+                      Container(
+                        height: 100,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/logo.png'),
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 100,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/logo.png'),
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 100,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/logo.png'),
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
                 ],
               ),
             ),
@@ -32,7 +67,7 @@ class WelcomeCardWidget extends StatelessWidget {
               child: Container(
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/images/logo.png'),
+                    image: AssetImage('assets/images/admin-illustrator.png'),
                     fit: BoxFit.contain,
                   ),
                 ),

@@ -8,14 +8,14 @@ import 'package:thppy_administration/widgets/drawer_widget.dart';
 import 'package:thppy_administration/widgets/grid_column_widget.dart';
 import 'package:thppy_administration/widgets/loading_widget.dart';
 
-class CountryScreen extends StatefulWidget {
-  const CountryScreen({Key? key}) : super(key: key);
+class UsersScreen extends StatefulWidget {
+  const UsersScreen({Key? key}) : super(key: key);
 
   @override
-  State<CountryScreen> createState() => _CountryScreenState();
+  State<UsersScreen> createState() => _UsersScreenState();
 }
 
-class _CountryScreenState extends State<CountryScreen> {
+class _UsersScreenState extends State<UsersScreen> {
   List<Country>? _laptops;
   late CountryDataGridSource _countryDataGridSource;
   bool _isLoading = false;
@@ -58,20 +58,25 @@ class _CountryScreenState extends State<CountryScreen> {
                     width: double.infinity,
                     padding: const EdgeInsets.all(10),
                     child: Card(
-                      child: SfDataGrid(
-                        source: _countryDataGridSource,
-                        selectionMode: SelectionMode.single,
-                        allowSorting: true,
-                        gridLinesVisibility: GridLinesVisibility.both,
-                        headerGridLinesVisibility: GridLinesVisibility.both,
-                        controller: _controller,
-                        columns: columns
-                            .map(
-                              (column) => gridColumnWidget(
-                                  columnName: column.columnName,
-                                  text: column.text),
-                            )
-                            .toList(),
+                      child: Column(
+                        children: [
+                          const Text('Users Management'),
+                          SfDataGrid(
+                            source: _countryDataGridSource,
+                            selectionMode: SelectionMode.single,
+                            allowSorting: true,
+                            gridLinesVisibility: GridLinesVisibility.both,
+                            headerGridLinesVisibility: GridLinesVisibility.both,
+                            controller: _controller,
+                            columns: columns
+                                .map(
+                                  (column) => gridColumnWidget(
+                                      columnName: column.columnName,
+                                      text: column.text),
+                                )
+                                .toList(),
+                          ),
+                        ],
                       ),
                     ),
                   ),

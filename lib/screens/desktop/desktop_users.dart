@@ -1,9 +1,9 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
-import 'package:thppy_administration/models/Country.dart';
 import 'package:thppy_administration/models/TableColumn.dart';
-import 'package:thppy_administration/services/country_services.dart';
+import 'package:thppy_administration/models/User.dart';
+import 'package:thppy_administration/services/user_services.dart';
 import 'package:thppy_administration/widgets/app_bar_widget.dart';
 import 'package:thppy_administration/widgets/drawer_widget.dart';
 import 'package:thppy_administration/widgets/grid_column_widget.dart';
@@ -11,16 +11,16 @@ import 'package:thppy_administration/widgets/loading_widget.dart';
 import 'package:thppy_administration/widgets/table_footer_widget.dart';
 import 'package:thppy_administration/widgets/table_header_widget.dart';
 
-class DesktopCountries extends StatefulWidget {
-  const DesktopCountries({Key? key}) : super(key: key);
+class DesktopUsers extends StatefulWidget {
+  const DesktopUsers({Key? key}) : super(key: key);
 
   @override
-  State<DesktopCountries> createState() => _DesktopCountriesState();
+  State<DesktopUsers> createState() => _DesktopUsersState();
 }
 
-class _DesktopCountriesState extends State<DesktopCountries> {
-  List<Country>? _laptops;
-  late CountryDataGridSource _countryDataGridSource;
+class _DesktopUsersState extends State<DesktopUsers> {
+  List<User>? _users;
+  late UserDataGridSource _userDataGridSource;
   bool _isLoading = false;
   final DataGridController _controller = DataGridController();
 
@@ -29,8 +29,8 @@ class _DesktopCountriesState extends State<DesktopCountries> {
       _isLoading = true;
     });
 
-    _laptops = await CountryService().getAllCountries();
-    _countryDataGridSource = CountryDataGridSource(_laptops!);
+    _users = await UserServices().getUsers();
+    _userDataGridSource = UserDataGridSource(_users!);
 
     setState(() {
       _isLoading = false;
@@ -71,7 +71,7 @@ class _DesktopCountriesState extends State<DesktopCountries> {
                           ),
                           Expanded(
                             child: SfDataGrid(
-                              source: _countryDataGridSource,
+                              source: _userDataGridSource,
                               selectionMode: SelectionMode.single,
                               allowSorting: true,
                               gridLinesVisibility: GridLinesVisibility.both,
@@ -211,8 +211,14 @@ class _DesktopCountriesState extends State<DesktopCountries> {
   void _generateExcel() {}
 
   final List<TableColumn> columns = [
-    TableColumn(columnName: 'id', text: 'Country Id'),
-    TableColumn(columnName: 'country_name', text: 'Country Name'),
+    TableColumn(columnName: 'id', text: 'User Id'),
+    TableColumn(columnName: 'name', text: 'Name'),
+    TableColumn(columnName: 'surname', text: 'Surname'),
+    TableColumn(columnName: 'phone', text: 'Phone'),
+    TableColumn(columnName: 'email', text: 'Email'),
+    TableColumn(columnName: 'password', text: 'Password'),
+    TableColumn(columnName: 'pic', text: 'Picture'),
+    TableColumn(columnName: 'permission_name', text: 'Permission Name'),
     TableColumn(columnName: 'status', text: 'Status'),
     TableColumn(columnName: 'last_update', text: 'Last Update'),
   ];

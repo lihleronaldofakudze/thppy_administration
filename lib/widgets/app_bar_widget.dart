@@ -67,6 +67,7 @@ AppBar appBarWidget() {
                 const SizedBox(width: 10),
                 const CircleAvatar(
                   radius: 22,
+                  backgroundImage: AssetImage('assets/images/admin.png'),
                 ),
               ]),
             ],

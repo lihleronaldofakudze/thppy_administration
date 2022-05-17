@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:thppy_administration/widgets/bar_charts_widget.dart';
+import 'package:thppy_administration/widgets/circular_charts_widget.dart';
 import 'package:thppy_administration/widgets/drawer_widget.dart';
 import 'package:thppy_administration/widgets/line_charts_widget.dart';
 import 'package:thppy_administration/widgets/welcome_card_widget.dart';
@@ -25,7 +26,7 @@ class _MobileHomeState extends State<MobileHome> {
             WelcomeCardWidget(),
             BarChartsWidget(),
             BarChartsWidget(),
-            // CircularChartsWidget(),
+            CircularChartsWidget(),
             LineChartsWidget(),
           ],
         ),

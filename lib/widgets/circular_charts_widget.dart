@@ -47,16 +47,21 @@ class _CircularChartsWidgetState extends State<CircularChartsWidget> {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: SfCartesianChart(
+        child: SfCircularChart(
           title: ChartTitle(text: 'Country Active Youth Users'),
-          series: <ChartSeries>[
-            PieSeries<CountryYouth, dynamic>(
-              dataSource: _chartData,
-              xValueMapper: (CountryYouth data, _) => data.name,
-              yValueMapper: (CountryYouth data, _) => data.total,
-            ),
+          series: <CircularSeries>[
+            DoughnutSeries<CountryYouth, dynamic>(
+                dataSource: _chartData,
+                xValueMapper: (CountryYouth data, _) => data.name,
+                yValueMapper: (CountryYouth data, _) => data.total,
+                dataLabelSettings: const DataLabelSettings(
+                  isVisible: true,
+                  labelPosition: ChartDataLabelPosition.outside,
+                  connectorLineSettings: ConnectorLineSettings(
+                    color: Colors.transparent,
+                  ),
+                )),
           ],
-          primaryXAxis: CategoryAxis(),
         ),
       ),
     );

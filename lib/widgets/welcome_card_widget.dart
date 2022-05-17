@@ -23,36 +23,108 @@ class WelcomeCardWidget extends StatelessWidget {
                     ),
                   ),
                   const Text(
-                    'Try our new Admin Dashboard Template, build with live Ant-Design components. Customize it to your needs and release to production!',
+                    'Administration Panel is a tool to manage your THPPY Data. '
+                    'With this tool and manage your data in a simple and easy way.',
                     style: TextStyle(
                       color: Colors.grey,
                     ),
                   ),
-                  Stack(
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Row(
                     children: [
                       Container(
-                        height: 100,
+                        height: 50,
+                        width: 50,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('assets/images/logo.png'),
+                            image: AssetImage('assets/images/eswatini.png'),
                             fit: BoxFit.contain,
                           ),
                         ),
                       ),
                       Container(
-                        height: 100,
+                        height: 50,
+                        width: 50,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('assets/images/logo.png'),
+                            image: AssetImage('assets/images/lesotho.png'),
                             fit: BoxFit.contain,
                           ),
                         ),
                       ),
                       Container(
-                        height: 100,
+                        height: 50,
+                        width: 50,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('assets/images/logo.png'),
+                            image: AssetImage('assets/images/botswana.png'),
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Container(
+                        height: 50,
+                        width: 50,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/nercha.png'),
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 50,
+                        width: 50,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/nac.jpg'),
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 50,
+                        width: 50,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/nahp.png'),
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        height: 50,
+                        width: 50,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/limkokwin.png'),
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 50,
+                        width: 50,
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/sadc.png'),
                             fit: BoxFit.contain,
                           ),
                         ),

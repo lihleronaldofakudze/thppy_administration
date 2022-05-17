@@ -1,9 +1,9 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
-import 'package:thppy_administration/models/Country.dart';
+import 'package:thppy_administration/models/CityCenter.dart';
 import 'package:thppy_administration/models/TableColumn.dart';
-import 'package:thppy_administration/services/country_services.dart';
+import 'package:thppy_administration/services/center_services.dart';
 import 'package:thppy_administration/widgets/app_bar_widget.dart';
 import 'package:thppy_administration/widgets/drawer_widget.dart';
 import 'package:thppy_administration/widgets/grid_column_widget.dart';
@@ -11,16 +11,16 @@ import 'package:thppy_administration/widgets/loading_widget.dart';
 import 'package:thppy_administration/widgets/table_footer_widget.dart';
 import 'package:thppy_administration/widgets/table_header_widget.dart';
 
-class DesktopCountries extends StatefulWidget {
-  const DesktopCountries({Key? key}) : super(key: key);
+class DesktopCenters extends StatefulWidget {
+  const DesktopCenters({Key? key}) : super(key: key);
 
   @override
-  State<DesktopCountries> createState() => _DesktopCountriesState();
+  State<DesktopCenters> createState() => _DesktopCentersState();
 }
 
-class _DesktopCountriesState extends State<DesktopCountries> {
-  List<Country>? _laptops;
-  late CountryDataGridSource _countryDataGridSource;
+class _DesktopCentersState extends State<DesktopCenters> {
+  List<CityCenter>? _centers;
+  late CenterDataGridSource _centerDataGridSource;
   bool _isLoading = false;
   final DataGridController _controller = DataGridController();
 
@@ -29,8 +29,8 @@ class _DesktopCountriesState extends State<DesktopCountries> {
       _isLoading = true;
     });
 
-    _laptops = await CountryService().getAllCountries();
-    _countryDataGridSource = CountryDataGridSource(_laptops!);
+    _centers = await CenterServices().getCenters();
+    _centerDataGridSource = CenterDataGridSource(_centers!);
 
     setState(() {
       _isLoading = false;
@@ -64,14 +64,14 @@ class _DesktopCountriesState extends State<DesktopCountries> {
                       child: Column(
                         children: [
                           TableHeaderWidget(
-                            title: 'Countries',
+                            title: 'Centers',
                             onAddPressed: _add,
                             onGeneratePressed: _generateExcel,
                             onRefreshPressed: _refreshData,
                           ),
                           Expanded(
                             child: SfDataGrid(
-                              source: _countryDataGridSource,
+                              source: _centerDataGridSource,
                               selectionMode: SelectionMode.single,
                               allowSorting: true,
                               gridLinesVisibility: GridLinesVisibility.both,
@@ -88,7 +88,7 @@ class _DesktopCountriesState extends State<DesktopCountries> {
                             ),
                           ),
                           TableFooterWidget(
-                            title: 'Country',
+                            title: 'Center',
                             onUpdatePressed: _update,
                             onDeletePressed: _delete,
                           )
@@ -115,7 +115,7 @@ class _DesktopCountriesState extends State<DesktopCountries> {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text('Update ${_countryNameController.text} Country'),
+          title: Text('Update ${_countryNameController.text} Center'),
           content: SingleChildScrollView(
             child: Column(
               children: [
@@ -177,7 +177,7 @@ class _DesktopCountriesState extends State<DesktopCountries> {
         context: context,
         builder: (context) => AlertDialog(
           title: const Text(
-            'Delete Country',
+            'Delete Center',
             style: TextStyle(color: Colors.red),
           ),
           content: Text('Are your sure you want to delete $name?'),
@@ -211,7 +211,9 @@ class _DesktopCountriesState extends State<DesktopCountries> {
   void _generateExcel() {}
 
   final List<TableColumn> columns = [
-    TableColumn(columnName: 'id', text: 'Country Id'),
+    TableColumn(columnName: 'id', text: 'Id'),
+    TableColumn(columnName: 'center_name', text: 'Center Name'),
+    TableColumn(columnName: 'region_name', text: 'Region Name'),
     TableColumn(columnName: 'country_name', text: 'Country Name'),
     TableColumn(columnName: 'status', text: 'Status'),
     TableColumn(columnName: 'last_update', text: 'Last Update'),

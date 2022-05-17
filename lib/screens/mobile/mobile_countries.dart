@@ -65,7 +65,9 @@ class _MobileCountriesState extends State<MobileCountries> {
                   children: [
                     TableHeaderWidget(
                       title: 'Countries',
-                      onPressed: _add,
+                      onAddPressed: _add,
+                      onGeneratePressed: _generateExcel,
+                      onRefreshPressed: _refreshData,
                     ),
                     Expanded(
                       child: SfDataGrid(
@@ -201,6 +203,8 @@ class _MobileCountriesState extends State<MobileCountries> {
       ).show();
     }
   }
+
+  void _generateExcel() {}
 
   final List<TableColumn> columns = [
     TableColumn(columnName: 'id', text: 'Country Id'),

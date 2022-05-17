@@ -1,40 +1,43 @@
-// id	region_name	country_name	status	last_update
+// id	center_name	country_name	region_name	status	last_update
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
-class Region {
+class CityCenter {
   final int id;
-  final String regionName;
+  final String centerName;
   final String countryName;
+  final String regionName;
   final String status;
   final DateTime lastUpdate;
 
-  Region({
+  CityCenter({
     required this.id,
-    required this.regionName,
+    required this.centerName,
     required this.countryName,
+    required this.regionName,
     required this.status,
     required this.lastUpdate,
   });
 
-  factory Region.fromJson(Map<String, dynamic> json) => Region(
+  factory CityCenter.fromJson(Map<String, dynamic> json) => CityCenter(
         id: json["id"],
-        regionName: json["region_name"],
+        centerName: json["center_name"],
         countryName: json["country_name"],
+        regionName: json["region_name"],
         status: json["status"],
         lastUpdate: DateTime.parse(json["last_update"]),
       );
 }
 
-class RegionDataGridSource extends DataGridSource {
-  RegionDataGridSource(this.regionList) {
+class CenterDataGridSource extends DataGridSource {
+  CenterDataGridSource(this.centerList) {
     buildDataGridRows();
   }
 
   late List<DataGridRow> dataGridRows;
-  late List<Region> regionList;
+  late List<CityCenter> centerList;
 
   @override
   DataGridRowAdapter? buildRow(DataGridRow row) {
@@ -54,7 +57,7 @@ class RegionDataGridSource extends DataGridSource {
   List<DataGridRow> get rows => dataGridRows;
 
   void buildDataGridRows() {
-    dataGridRows = regionList.map<DataGridRow>((dataGridRow) {
+    dataGridRows = centerList.map<DataGridRow>((dataGridRow) {
       return DataGridRow(
         cells: [
           DataGridCell<String>(
@@ -62,12 +65,16 @@ class RegionDataGridSource extends DataGridSource {
             value: dataGridRow.id.toString(),
           ),
           DataGridCell<String>(
-            columnName: 'Region Name',
-            value: dataGridRow.regionName,
+            columnName: 'Center Name',
+            value: dataGridRow.centerName,
           ),
           DataGridCell<String>(
             columnName: 'Country Name',
             value: dataGridRow.countryName,
+          ),
+          DataGridCell<String>(
+            columnName: 'Region Name',
+            value: dataGridRow.regionName,
           ),
           DataGridCell<String>(
             columnName: 'Status',
@@ -75,7 +82,7 @@ class RegionDataGridSource extends DataGridSource {
           ),
           DataGridCell<String>(
             columnName: 'Last Update',
-            value: DateFormat('yyyy-MM-dd HH:mm:ss')
+            value: DateFormat('yyyy-MM-dd - kk:mm')
                 .format(dataGridRow.lastUpdate)
                 .toString(),
           ),

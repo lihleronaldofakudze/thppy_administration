@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 
 class TableHeaderWidget extends StatelessWidget {
   final String title;
-  final VoidCallback onPressed;
-  const TableHeaderWidget(
-      {Key? key, required this.title, required this.onPressed})
-      : super(key: key);
+  final VoidCallback onAddPressed;
+  final VoidCallback onRefreshPressed;
+  final VoidCallback onGeneratePressed;
+  const TableHeaderWidget({
+    Key? key,
+    required this.title,
+    required this.onAddPressed,
+    required this.onRefreshPressed,
+    required this.onGeneratePressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +28,29 @@ class TableHeaderWidget extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
+          Row(
+            children: [
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.black,
+                ),
+                onPressed: onRefreshPressed,
+                child: const Text('Refresh Table'),
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.black,
+                ),
+                onPressed: onGeneratePressed,
+                child: const Text('Generate Excel'),
+              ),
+            ],
+          ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               primary: Colors.green,
             ),
-            onPressed: onPressed,
+            onPressed: onAddPressed,
             child: Text('Add New $title'),
           ),
         ],

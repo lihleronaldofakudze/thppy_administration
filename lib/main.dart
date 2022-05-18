@@ -25,6 +25,7 @@ import 'package:thppy_administration/screens/quiz_group_screen.dart';
 import 'package:thppy_administration/screens/quiz_screen.dart';
 import 'package:thppy_administration/screens/reactions_screen.dart';
 import 'package:thppy_administration/screens/region_screen.dart';
+import 'package:thppy_administration/screens/response_screen.dart';
 import 'package:thppy_administration/screens/services_screen.dart';
 import 'package:thppy_administration/screens/social_media_analysis_screen.dart';
 import 'package:thppy_administration/screens/social_media_screen.dart';
@@ -81,6 +82,7 @@ class MyApp extends StatelessWidget {
         '/permissions': (context) => const PermissionsScreen(),
         '/quiz': (context) => const QuizScreen(),
         '/quiz_groups': (context) => const QuizGroupsScreen(),
+        '/quiz_responses': (context) => const QuizResponsesScreen(),
         '/reactions': (context) => const ReactionsScreen(),
         '/regions': (context) => const RegionsScreen(),
         '/services': (context) => const ServicesScreen(),

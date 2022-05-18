@@ -32,6 +32,7 @@ class Constants {
   // Teams
   // Trainers
   // About
+  // Permissions
 
   final drawee = [
     Draw(
@@ -168,6 +169,11 @@ class Constants {
       title: 'About',
       icon: Icons.info,
       route: '/about',
+    ),
+    Draw(
+      title: 'Permissions',
+      icon: Icons.lock,
+      route: '/permissions',
     ),
   ];
 }

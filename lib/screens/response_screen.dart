@@ -3,14 +3,14 @@ import 'package:thppy_administration/responsive.dart';
 import 'package:thppy_administration/screens/desktop/desktop_countries.dart';
 import 'package:thppy_administration/screens/mobile/mobile_countries.dart';
 
-class ResponseScreen extends StatefulWidget {
-  const ResponseScreen({Key? key}) : super(key: key);
+class QuizResponsesScreen extends StatefulWidget {
+  const QuizResponsesScreen({Key? key}) : super(key: key);
 
   @override
-  State<ResponseScreen> createState() => _ResponseScreenState();
+  State<QuizResponsesScreen> createState() => _QuizResponsesScreenState();
 }
 
-class _ResponseScreenState extends State<ResponseScreen> {
+class _QuizResponsesScreenState extends State<QuizResponsesScreen> {
   @override
   Widget build(BuildContext context) {
     return const Responsive(

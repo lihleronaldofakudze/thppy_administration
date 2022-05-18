@@ -82,7 +82,7 @@ class Constants {
     Draw(
       title: 'Bootcamp Events',
       icon: Icons.event,
-      route: '/bootcamp-events',
+      route: '/bootcamp_events',
     ),
     Draw(
       title: 'Chats',
@@ -132,12 +132,12 @@ class Constants {
     Draw(
       title: 'Quiz Groups',
       icon: Icons.group,
-      route: '/quiz-groups',
+      route: '/quiz_groups',
     ),
     Draw(
       title: 'Quiz Responses',
       icon: Icons.check_circle,
-      route: '/quiz-responses',
+      route: '/quiz_responses',
     ),
     Draw(
       title: 'Services',
@@ -147,12 +147,12 @@ class Constants {
     Draw(
       title: 'Social Media',
       icon: Icons.share,
-      route: '/social-media',
+      route: '/social_media',
     ),
     Draw(
       title: 'Social Media Analysis',
       icon: FontAwesomeIcons.chartLine,
-      route: '/social-media-analysis',
+      route: '/social_media_analysis',
     ),
     Draw(
       title: 'Teams',

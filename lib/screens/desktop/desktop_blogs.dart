@@ -64,7 +64,7 @@ class _DesktopBlogsState extends State<DesktopBlogs> {
                       child: Column(
                         children: [
                           TableHeaderWidget(
-                            title: 'Centers',
+                            title: 'Blogs',
                             onAddPressed: _add,
                             onGeneratePressed: _generateExcel,
                             onRefreshPressed: _refreshData,
@@ -88,7 +88,7 @@ class _DesktopBlogsState extends State<DesktopBlogs> {
                             ),
                           ),
                           TableFooterWidget(
-                            title: 'Center',
+                            title: 'Blog',
                             onUpdatePressed: _update,
                             onDeletePressed: _delete,
                           )
@@ -115,7 +115,7 @@ class _DesktopBlogsState extends State<DesktopBlogs> {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text('Update ${_countryNameController.text} Center'),
+          title: Text('Update ${_countryNameController.text} Blog'),
           content: SingleChildScrollView(
             child: Column(
               children: [
@@ -123,7 +123,7 @@ class _DesktopBlogsState extends State<DesktopBlogs> {
                   controller: _countryNameController,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
-                    label: Text('Country Name'),
+                    label: Text('Blog Name'),
                     border: OutlineInputBorder(),
                   ),
                 ),

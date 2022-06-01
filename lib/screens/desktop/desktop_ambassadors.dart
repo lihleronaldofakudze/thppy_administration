@@ -64,7 +64,7 @@ class _DesktopAmbassadorsState extends State<DesktopAmbassadors> {
                       child: Column(
                         children: [
                           TableHeaderWidget(
-                            title: 'Centers',
+                            title: 'Ambassadors',
                             onAddPressed: _add,
                             onGeneratePressed: _generateExcel,
                             onRefreshPressed: _refreshData,
@@ -88,7 +88,7 @@ class _DesktopAmbassadorsState extends State<DesktopAmbassadors> {
                             ),
                           ),
                           TableFooterWidget(
-                            title: 'Center',
+                            title: 'Ambassador',
                             onUpdatePressed: _update,
                             onDeletePressed: _delete,
                           )
@@ -123,7 +123,7 @@ class _DesktopAmbassadorsState extends State<DesktopAmbassadors> {
                   controller: _countryNameController,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
-                    label: Text('Country Name'),
+                    label: Text('Ambassador Name'),
                     border: OutlineInputBorder(),
                   ),
                 ),
@@ -177,7 +177,7 @@ class _DesktopAmbassadorsState extends State<DesktopAmbassadors> {
         context: context,
         builder: (context) => AlertDialog(
           title: const Text(
-            'Delete Center',
+            'Delete Ambassador',
             style: TextStyle(color: Colors.red),
           ),
           content: Text('Are your sure you want to delete $name?'),

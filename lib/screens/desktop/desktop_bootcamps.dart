@@ -64,7 +64,7 @@ class _DesktopBootcampsState extends State<DesktopBootcamps> {
                       child: Column(
                         children: [
                           TableHeaderWidget(
-                            title: 'Centers',
+                            title: 'Bootcamps',
                             onAddPressed: _add,
                             onGeneratePressed: _generateExcel,
                             onRefreshPressed: _refreshData,
@@ -88,7 +88,7 @@ class _DesktopBootcampsState extends State<DesktopBootcamps> {
                             ),
                           ),
                           TableFooterWidget(
-                            title: 'Center',
+                            title: 'Bootcamp',
                             onUpdatePressed: _update,
                             onDeletePressed: _delete,
                           )

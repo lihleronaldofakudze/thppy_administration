@@ -25,7 +25,7 @@ import 'package:thppy_administration/screens/quiz_group_screen.dart';
 import 'package:thppy_administration/screens/quiz_screen.dart';
 import 'package:thppy_administration/screens/reactions_screen.dart';
 import 'package:thppy_administration/screens/region_screen.dart';
-import 'package:thppy_administration/screens/response_screen.dart';
+import 'package:thppy_administration/screens/quiz_response_screen.dart';
 import 'package:thppy_administration/screens/services_screen.dart';
 import 'package:thppy_administration/screens/social_media_analysis_screen.dart';
 import 'package:thppy_administration/screens/social_media_screen.dart';

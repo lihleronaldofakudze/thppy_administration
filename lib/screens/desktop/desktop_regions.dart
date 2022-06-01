@@ -1,9 +1,9 @@
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
-import 'package:thppy_administration/models/CityCenter.dart';
+import 'package:thppy_administration/models/Region.dart';
 import 'package:thppy_administration/models/TableColumn.dart';
-import 'package:thppy_administration/services/center_services.dart';
+import 'package:thppy_administration/services/region_services.dart';
 import 'package:thppy_administration/widgets/app_bar_widget.dart';
 import 'package:thppy_administration/widgets/drawer_widget.dart';
 import 'package:thppy_administration/widgets/grid_column_widget.dart';
@@ -11,16 +11,16 @@ import 'package:thppy_administration/widgets/loading_widget.dart';
 import 'package:thppy_administration/widgets/table_footer_widget.dart';
 import 'package:thppy_administration/widgets/table_header_widget.dart';
 
-class DesktopCenters extends StatefulWidget {
-  const DesktopCenters({Key? key}) : super(key: key);
+class DesktopRegions extends StatefulWidget {
+  const DesktopRegions({Key? key}) : super(key: key);
 
   @override
-  State<DesktopCenters> createState() => _DesktopCentersState();
+  State<DesktopRegions> createState() => _DesktopRegionsState();
 }
 
-class _DesktopCentersState extends State<DesktopCenters> {
-  List<CityCenter>? _centers;
-  late CenterDataGridSource _centerDataGridSource;
+class _DesktopRegionsState extends State<DesktopRegions> {
+  List<Region>? _regions;
+  late RegionDataGridSource _regionDataGridSource;
   bool _isLoading = false;
   final DataGridController _controller = DataGridController();
 
@@ -29,8 +29,8 @@ class _DesktopCentersState extends State<DesktopCenters> {
       _isLoading = true;
     });
 
-    _centers = await CenterServices().getCenters();
-    _centerDataGridSource = CenterDataGridSource(_centers!);
+    _regions = await RegionServices().getRegions();
+    _regionDataGridSource = RegionDataGridSource(_regions!);
 
     setState(() {
       _isLoading = false;
@@ -64,14 +64,14 @@ class _DesktopCentersState extends State<DesktopCenters> {
                       child: Column(
                         children: [
                           TableHeaderWidget(
-                            title: 'Centers',
+                            title: 'Regions',
                             onAddPressed: _add,
                             onGeneratePressed: _generateExcel,
                             onRefreshPressed: _refreshData,
                           ),
                           Expanded(
                             child: SfDataGrid(
-                              source: _centerDataGridSource,
+                              source: _regionDataGridSource,
                               selectionMode: SelectionMode.single,
                               allowSorting: true,
                               gridLinesVisibility: GridLinesVisibility.both,
@@ -81,14 +81,15 @@ class _DesktopCentersState extends State<DesktopCenters> {
                               columns: columns
                                   .map(
                                     (column) => gridColumnWidget(
-                                        columnName: column.columnName,
-                                        text: column.text),
+                                      columnName: column.columnName,
+                                      text: column.text,
+                                    ),
                                   )
                                   .toList(),
                             ),
                           ),
                           TableFooterWidget(
-                            title: 'Center',
+                            title: 'Region',
                             onUpdatePressed: _update,
                             onDeletePressed: _delete,
                           )
@@ -212,7 +213,6 @@ class _DesktopCentersState extends State<DesktopCenters> {
 
   final List<TableColumn> columns = [
     TableColumn(columnName: 'id', text: 'Id'),
-    TableColumn(columnName: 'center_name', text: 'Center Name'),
     TableColumn(columnName: 'region_name', text: 'Region Name'),
     TableColumn(columnName: 'country_name', text: 'Country Name'),
     TableColumn(columnName: 'status', text: 'Status'),

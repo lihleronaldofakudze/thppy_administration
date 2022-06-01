@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:thppy_administration/responsive.dart';
 
 class WelcomeCardWidget extends StatelessWidget {
   const WelcomeCardWidget({Key? key}) : super(key: key);
@@ -104,47 +105,55 @@ class WelcomeCardWidget extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        height: 50,
-                        width: 50,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/images/limkokwin.png'),
-                            fit: BoxFit.contain,
-                          ),
+                  Responsive.isMobile(context)
+                      ? Container()
+                      : const SizedBox(
+                          height: 16,
                         ),
-                      ),
-                      Container(
-                        height: 50,
-                        width: 50,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/images/sadc.png'),
-                            fit: BoxFit.contain,
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
+                  Responsive.isMobile(context)
+                      ? Container()
+                      : Row(
+                          children: [
+                            Container(
+                              height: 50,
+                              width: 50,
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                  image:
+                                      AssetImage('assets/images/limkokwin.png'),
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 50,
+                              width: 50,
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage('assets/images/sadc.png'),
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
                 ],
               ),
             ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/admin-illustrator.png'),
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              ),
-            )
+            Responsive.isMobile(context)
+                ? Container()
+                : Expanded(
+                    flex: 1,
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image:
+                              AssetImage('assets/images/admin-illustrator.png'),
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                  )
           ],
         ),
       ),

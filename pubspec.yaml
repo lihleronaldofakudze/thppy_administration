@@ -10,20 +10,19 @@ environment:
 
 dependencies:
   animated_splash_screen: ^1.2.0
-  awesome_dialog: ^2.2.0
+  awesome_dialog: ^3.0.0
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.1.0
-  google_fonts: ^2.3.2
+  google_fonts: ^3.0.1
   http: ^0.13.4
   intl: ^0.17.0
   syncfusion_flutter_charts: ^20.1.55
-  syncfusion_flutter_datagrid: ^20.1.52
   syncfusion_flutter_xlsio: ^20.1.52-beta
 
 dev_dependencies:
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter
 

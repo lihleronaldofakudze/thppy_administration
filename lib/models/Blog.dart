@@ -1,7 +1,6 @@
 // id	title	trainer_name	description	pic	status	last_update
 
 import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
 class Blog {
   final int id;

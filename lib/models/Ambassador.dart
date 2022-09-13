@@ -1,7 +1,6 @@
 // id	name	surname	natid	gender	phone	email	pic	hashtag	country_name	region_name	center_name	organization	status	last_update
 
 import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
 class Ambassador {
   final int id;

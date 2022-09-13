@@ -1,12 +1,12 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_datagrid/datagrid.dart';
+
 import 'package:thppy_administration/models/CityCenter.dart';
 import 'package:thppy_administration/models/TableColumn.dart';
 import 'package:thppy_administration/services/center_services.dart';
 import 'package:thppy_administration/widgets/app_bar_widget.dart';
 import 'package:thppy_administration/widgets/drawer_widget.dart';
-import 'package:thppy_administration/widgets/grid_column_widget.dart';
+
 import 'package:thppy_administration/widgets/loading_widget.dart';
 import 'package:thppy_administration/widgets/table_footer_widget.dart';
 import 'package:thppy_administration/widgets/table_header_widget.dart';
@@ -107,20 +107,20 @@ class _DesktopAmbassadorsState extends State<DesktopAmbassadors> {
     if (_controller.selectedRow != null) {
       DataGridRow selectedRow = _controller.selectedRow!;
       String id = selectedRow.getCells().first.value;
-      final _countryNameController = TextEditingController(
+      final countryNameController = TextEditingController(
           text: selectedRow.getCells().elementAt(1).value.toString());
-      final _statusController = TextEditingController(
+      final statusController = TextEditingController(
           text: selectedRow.getCells().elementAt(2).value.toString());
 
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text('Update ${_countryNameController.text} Center'),
+          title: Text('Update ${countryNameController.text} Center'),
           content: SingleChildScrollView(
             child: Column(
               children: [
                 TextFormField(
-                  controller: _countryNameController,
+                  controller: countryNameController,
                   keyboardType: TextInputType.text,
                   decoration: const InputDecoration(
                     label: Text('Ambassador Name'),
@@ -132,7 +132,7 @@ class _DesktopAmbassadorsState extends State<DesktopAmbassadors> {
                 ),
                 TextFormField(
                   keyboardType: TextInputType.number,
-                  controller: _statusController,
+                  controller: statusController,
                   decoration: const InputDecoration(
                     label: Text('Status'),
                     border: OutlineInputBorder(),

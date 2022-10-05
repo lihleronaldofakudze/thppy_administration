@@ -16,13 +16,4 @@ class Bootcamp {
     required this.status,
     required this.lastUpdate,
   });
-
-  factory Bootcamp.fromJson(Map<String, dynamic> json) => Bootcamp(
-        id: json["id"],
-        bootcampName: json["bootcamp_name"],
-        bootcampPic: json["Bootcamp_pic"],
-        targetAudiance: json["target_audiance"],
-        status: json["status"],
-        lastUpdate: DateTime.parse(json["last_update"]),
-      );
 }

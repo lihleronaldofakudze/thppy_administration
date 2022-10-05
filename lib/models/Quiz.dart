@@ -16,13 +16,4 @@ class Quiz {
     required this.status,
     required this.lastUpdate,
   });
-
-  factory Quiz.fromJson(Map<String, dynamic> json) => Quiz(
-        id: json["id"],
-        question: json["question"],
-        answer: json["answer"],
-        quizgroupName: json["quizgroup_name"],
-        status: json["status"],
-        lastUpdate: DateTime.parse(json["last_update"]),
-      );
 }

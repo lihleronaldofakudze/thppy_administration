@@ -32,21 +32,4 @@ class BootcampEvent {
     required this.status,
     required this.lastUpdate,
   });
-
-  factory BootcampEvent.fromJson(Map<String, dynamic> json) => BootcampEvent(
-        id: json["id"],
-        bootcampName: json["bootcamp_name"],
-        countryName: json["country_name"],
-        regionName: json["region_name"],
-        centerName: json["center_name"],
-        trainerName: json["trainer_name"],
-        description: json["description"],
-        venue: json["venue"],
-        date: json["date"],
-        bootcampImage: json["Bootcamp_image"],
-        numberOfSeats: json["Number_of_seats"],
-        eventName: json["Event_name"],
-        status: json["status"],
-        lastUpdate: DateTime.parse(json["last_update"]),
-      );
 }

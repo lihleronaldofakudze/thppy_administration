@@ -26,18 +26,4 @@ class Youth {
     required this.pic,
     required this.status,
   });
-
-  factory Youth.fromJson(Map<String, dynamic> json) => Youth(
-        id: json["id"],
-        natid: json["natid"],
-        name: json["name"],
-        surname: json["surname"],
-        gender: json["gender"],
-        countryName: json["country_name"],
-        regionName: json["region_name"],
-        lastUpdate: json["last_update"],
-        centerName: json["center_name"],
-        pic: json["pic"],
-        status: json["status"],
-      );
 }

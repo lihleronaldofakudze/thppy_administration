@@ -14,12 +14,4 @@ class Reaction {
     required this.from,
     required this.lastUpdate,
   });
-
-  factory Reaction.fromJson(Map<String, dynamic> json) => Reaction(
-        id: json["id"],
-        reactionName: json["reaction_name"],
-        sentBy: json["sent_by"],
-        from: json["from"],
-        lastUpdate: DateTime.parse(json["last_update"]),
-      );
 }

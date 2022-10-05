@@ -22,16 +22,4 @@ class SocialMedia {
     required this.status,
     required this.lastUpdate,
   });
-
-  factory SocialMedia.fromJson(Map<String, dynamic> json) => SocialMedia(
-        id: json["id"],
-        name: json["name"],
-        managerName: json["manager_name"],
-        managerPhone: json["manager_phone"],
-        managerEmail: json["manager_email"],
-        loginUsername: json["login_username"],
-        loginPassword: json["login_password"],
-        status: json["status"],
-        lastUpdate: DateTime.parse(json["last_update"]),
-      );
 }

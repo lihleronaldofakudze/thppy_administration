@@ -1,6 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:thppy_administration/firebase_options.dart';
+import 'package:thppy_administration/models/CurrentUser.dart';
 import 'package:thppy_administration/screens/about_screen.dart';
 import 'package:thppy_administration/screens/ambassadors_screen.dart';
 import 'package:thppy_administration/screens/auth_state_screen.dart';
@@ -33,8 +36,15 @@ import 'package:thppy_administration/screens/teams_screen.dart';
 import 'package:thppy_administration/screens/trainers_screen.dart';
 import 'package:thppy_administration/screens/users_screen.dart';
 import 'package:thppy_administration/screens/youth_screen.dart';
+import 'package:thppy_administration/services/auth_services.dart';
+import 'package:url_strategy/url_strategy.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  setPathUrlStrategy();
   runApp(const MyApp());
 }
 
@@ -43,60 +53,57 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'THPPY Administration',
-      debugShowCheckedModeBanner: false,
-      routes: {
-        '/': (context) => AnimatedSplashScreen(
-              splash: Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/logo.png'),
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              ),
-              nextScreen: const AuthStateScreen(),
-              splashIconSize: 300,
-            ),
-        '/auth': (context) => const AuthStateScreen(),
-        '/login': (context) => const LoginScreen(),
-        '/home': (context) => const HomeScreen(),
-        '/forgot_password': (context) => const ForgotPasswordScreen(),
-        '/countries': (context) => const CountriesScreen(),
-        '/users': (context) => const UsersScreen(),
-        '/centers': (context) => const CentersScreen(),
-        '/about': (context) => const AboutScreen(),
-        '/ambassadors': (context) => const AmbassadorsScreen(),
-        '/blogs': (context) => const BlogsScreen(),
-        '/bootcamps': (context) => const BootcampsScreen(),
-        '/bootcamp_events': (context) => const BootcampEventsScreen(),
-        '/chats': (context) => const ChatsScreen(),
-        '/comments': (context) => const CommentsScreen(),
-        '/faq': (context) => const FAQScreen(),
-        '/gallery': (context) => const GalleryScreen(),
-        '/interactions': (context) => const InteractionsScreen(),
-        '/messages': (context) => const MessagesScreen(),
-        '/partners': (context) => const PartnersScreen(),
-        '/linkages': (context) => const LinkagesScreen(),
-        '/permissions': (context) => const PermissionsScreen(),
-        '/quiz': (context) => const QuizScreen(),
-        '/quiz_groups': (context) => const QuizGroupsScreen(),
-        '/quiz_responses': (context) => const QuizResponsesScreen(),
-        '/reactions': (context) => const ReactionsScreen(),
-        '/regions': (context) => const RegionsScreen(),
-        '/services': (context) => const ServicesScreen(),
-        '/social_media': (context) => const SocialMediaScreen(),
-        '/social_media_analysis': (context) =>
-            const SocialMediaAnalysisScreen(),
-        '/teams': (context) => const TeamsScreen(),
-        '/trainers': (context) => const TrainersScreen(),
-        '/youth': (context) => const YouthScreen(),
-      },
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-        textTheme: GoogleFonts.nunitoTextTheme(
-          Theme.of(context).textTheme,
+    return MultiProvider(
+      providers: [
+        StreamProvider<CurrentUser?>.value(
+          value: AuthServices().user,
+          initialData: CurrentUser(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'THPPY Administration',
+        debugShowCheckedModeBanner: false,
+        routes: {
+          '/': (context) => const AuthStateScreen(),
+          '/login': (context) => const LoginScreen(),
+          '/home': (context) => const HomeScreen(),
+          '/forgot_password': (context) => const ForgotPasswordScreen(),
+          '/countries': (context) => const CountriesScreen(),
+          '/users': (context) => const UsersScreen(),
+          '/centers': (context) => const CentersScreen(),
+          '/about': (context) => const AboutScreen(),
+          '/ambassadors': (context) => const AmbassadorsScreen(),
+          '/blogs': (context) => const BlogsScreen(),
+          '/bootcamps': (context) => const BootcampsScreen(),
+          '/bootcamp_events': (context) => const BootcampEventsScreen(),
+          '/chats': (context) => const ChatsScreen(),
+          '/comments': (context) => const CommentsScreen(),
+          '/faq': (context) => const FAQScreen(),
+          '/gallery': (context) => const GalleryScreen(),
+          '/interactions': (context) => const InteractionsScreen(),
+          '/messages': (context) => const MessagesScreen(),
+          '/partners': (context) => const PartnersScreen(),
+          '/linkages': (context) => const LinkagesScreen(),
+          '/permissions': (context) => const PermissionsScreen(),
+          '/quiz': (context) => const QuizScreen(),
+          '/quiz_groups': (context) => const QuizGroupsScreen(),
+          '/quiz_responses': (context) => const QuizResponsesScreen(),
+          '/reactions': (context) => const ReactionsScreen(),
+          '/regions': (context) => const RegionsScreen(),
+          '/services': (context) => const ServicesScreen(),
+          '/social_media': (context) => const SocialMediaScreen(),
+          '/social_media_analysis': (context) =>
+              const SocialMediaAnalysisScreen(),
+          '/teams': (context) => const TeamsScreen(),
+          '/trainers': (context) => const TrainersScreen(),
+          '/youth': (context) => const YouthScreen(),
+        },
+        theme: ThemeData(
+          primarySwatch: Colors.red,
+          textTheme: GoogleFonts.nunitoTextTheme(
+            Theme.of(context).textTheme,
+          ),
+          useMaterial3: true,
         ),
       ),
     );

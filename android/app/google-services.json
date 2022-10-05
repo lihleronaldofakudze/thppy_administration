@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "470765701147",
+    "project_id": "thppy-limkokwing",
+    "storage_bucket": "thppy-limkokwing.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470765701147:android:b767db8c580ac308d550be",
+        "android_client_info": {
+          "package_name": "com.example.thppy_administration"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "470765701147-mtibtjea37qfed82b35vp1ufomq6ib1b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAg6Zfxf6tOMLRCd_PSZOB7SK1QNblwe9Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "470765701147-mtibtjea37qfed82b35vp1ufomq6ib1b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "470765701147-aenhki2fqc5vi16avfli5b6eq7mk99of.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.limkokwing.thppy"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470765701147:android:436367f2e1d1663cd550be",
+        "android_client_info": {
+          "package_name": "dev.lihlefakudze.thppy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "470765701147-mtibtjea37qfed82b35vp1ufomq6ib1b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAg6Zfxf6tOMLRCd_PSZOB7SK1QNblwe9Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "470765701147-mtibtjea37qfed82b35vp1ufomq6ib1b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "470765701147-aenhki2fqc5vi16avfli5b6eq7mk99of.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.limkokwing.thppy"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

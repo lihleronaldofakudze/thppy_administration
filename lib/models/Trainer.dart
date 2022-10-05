@@ -34,22 +34,4 @@ class Trainer {
     required this.status,
     required this.lastUpdate,
   });
-
-  factory Trainer.fromJson(Map<String, dynamic> json) => Trainer(
-        id: json["id"],
-        natid: json["natid"],
-        name: json["name"],
-        surname: json["surname"],
-        phone: json["phone"],
-        email: json["email"],
-        organizationName: json["organization_name"],
-        countryName: json["country_name"],
-        regionName: json["region_name"],
-        centerName: json["center_name"],
-        username: json["username"],
-        password: json["password"],
-        pic: json["pic"],
-        status: json["status"],
-        lastUpdate: DateTime.parse(json["last_update"]),
-      );
 }

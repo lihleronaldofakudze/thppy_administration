@@ -12,11 +12,4 @@ class QuizGroup {
     required this.status,
     required this.lastUpdate,
   });
-
-  factory QuizGroup.fromJson(Map<String, dynamic> json) => QuizGroup(
-        id: json["id"],
-        quizgroupName: json["quizgroup_name"],
-        status: json["status"],
-        lastUpdate: DateTime.parse(json["last_update"]),
-      );
 }

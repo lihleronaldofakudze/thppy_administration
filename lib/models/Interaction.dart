@@ -24,17 +24,4 @@ class Interaction {
     required this.status,
     required this.lastUpdate,
   });
-
-  factory Interaction.fromJson(Map<String, dynamic> json) => Interaction(
-        id: json["id"],
-        clientNatid: json["client_natid"],
-        serviceName: json["service_name"],
-        referredFor: json["referred_for"],
-        generatedId: json["generated_id"],
-        countryName: json["country_name"],
-        regionName: json["region_name"],
-        centerName: json["center_name"],
-        status: json["status"],
-        lastUpdate: DateTime.parse(json["last_update"]),
-      );
 }

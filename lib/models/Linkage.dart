@@ -18,14 +18,4 @@ class Linkage {
     required this.status,
     required this.lastUpdate,
   });
-
-  factory Linkage.fromJson(Map<String, dynamic> json) => Linkage(
-        id: json["id"],
-        linkageName: json["linkage_name"],
-        country: json["country"],
-        link: json["link"],
-        serviceName: json["service_name"],
-        status: json["status"],
-        lastUpdate: DateTime.parse(json["last_update"]),
-      );
 }

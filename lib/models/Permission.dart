@@ -12,11 +12,4 @@ class Permission {
     required this.status,
     required this.lastUpdate,
   });
-
-  factory Permission.fromJson(Map<String, dynamic> json) => Permission(
-        id: json["id"],
-        permissionName: json["permission_name"],
-        status: json["status"],
-        lastUpdate: DateTime.parse(json["last_update"]),
-      );
 }

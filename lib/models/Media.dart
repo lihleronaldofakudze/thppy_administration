@@ -20,15 +20,4 @@ class Media {
     required this.status,
     required this.lastUpdate,
   });
-
-  factory Media.fromJson(Map<String, dynamic> json) => Media(
-        id: json["id"],
-        mediaCatagory: json["media_catagory"],
-        dueDate: json["due_date"],
-        showName: json["show_name"],
-        channelName: json["channel_name"],
-        description: json["description"],
-        status: json["status"],
-        lastUpdate: DateTime.parse(json["last_update"]),
-      );
 }

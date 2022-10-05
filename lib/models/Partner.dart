@@ -20,15 +20,4 @@ class Partner {
     required this.status,
     required this.lastUpdate,
   });
-
-  factory Partner.fromJson(Map<String, dynamic> json) => Partner(
-        id: json["id"],
-        name: json["name"],
-        countryName: json["country_name"],
-        regionName: json["region_name"],
-        description: json["description"],
-        logo: json["logo"],
-        status: json["status"],
-        lastUpdate: DateTime.parse(json["last_update"]),
-      );
 }

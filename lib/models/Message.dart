@@ -16,13 +16,4 @@ class Message {
     required this.status,
     required this.lastUpdate,
   });
-
-  factory Message.fromJson(Map<String, dynamic> json) => Message(
-        id: json["id"],
-        messageTitle: json["message_title"],
-        content: json["content"],
-        socialMediaName: json["social_media_name"],
-        status: json["status"],
-        lastUpdate: DateTime.parse(json["last_update"]),
-      );
 }

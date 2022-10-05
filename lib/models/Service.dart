@@ -20,15 +20,4 @@ class Service {
     required this.status,
     required this.lastUpdate,
   });
-
-  factory Service.fromJson(Map<String, dynamic> json) => Service(
-        id: json["id"],
-        serviceName: json["service_name"],
-        organization: json["organization"],
-        countryName: json["country_name"],
-        regionName: json["region_name"],
-        centerName: json["center_name"],
-        status: json["status"],
-        lastUpdate: DateTime.parse(json["last_update"]),
-      );
 }

@@ -14,12 +14,4 @@ class Gallery {
     required this.status,
     required this.lastUpdate,
   });
-
-  factory Gallery.fromJson(Map<String, dynamic> json) => Gallery(
-        id: json["id"],
-        pics: json["pics"],
-        description: json["description"],
-        status: json["status"],
-        lastUpdate: DateTime.parse(json["last_update"]),
-      );
 }

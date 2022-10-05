@@ -30,21 +30,4 @@ class About {
     required this.status,
     required this.lastUpdate,
   });
-
-  factory About.fromJson(Map<String, dynamic> json) => About(
-        id: json["id"],
-        description: json["description"],
-        goals: json["goals"],
-        contact: json["contact"],
-        email: json["email"],
-        physicalAddress: json["physical_address"],
-        location: json["location"],
-        facebookLink: json["facebook_link"],
-        twitterLink: json["twitter_link"],
-        instagramLink: json["instagram_link"],
-        whatsappLink: json["whatsapp_link"],
-        tiktokLink: json["tiktok_link"],
-        status: json["status"],
-        lastUpdate: json["last_update"],
-      );
 }

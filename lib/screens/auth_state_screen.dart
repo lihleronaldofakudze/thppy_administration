@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:thppy_administration/models/CurrentUser.dart';
 import 'package:thppy_administration/screens/home_screen.dart';
 import 'package:thppy_administration/screens/login_screen.dart';
 
@@ -10,10 +12,10 @@ class AuthStateScreen extends StatefulWidget {
 }
 
 class _AuthStateScreenState extends State<AuthStateScreen> {
-  final isLoggedIn = false;
   @override
   Widget build(BuildContext context) {
-    if (isLoggedIn) {
+    final currentUser = Provider.of<CurrentUser?>(context);
+    if (currentUser != null) {
       return const HomeScreen();
     } else {
       return const LoginScreen();

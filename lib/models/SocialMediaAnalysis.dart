@@ -22,17 +22,4 @@ class SocialMediaAnalysis {
     required this.status,
     required this.lastUpdate,
   });
-
-  factory SocialMediaAnalysis.fromJson(Map<String, dynamic> json) =>
-      SocialMediaAnalysis(
-        id: json["id"],
-        socialMedia: json["social_media"],
-        messageTitle: json["message_title"],
-        ageRange: json["age_range"],
-        gender: json["gender"],
-        newReached: json["new_reached"],
-        totalReached: json["total_reached"],
-        status: json["status"],
-        lastUpdate: DateTime.parse(json["last_update"]),
-      );
 }

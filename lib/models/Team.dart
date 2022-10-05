@@ -22,16 +22,4 @@ class Team {
     required this.lastUpdate,
     required this.pic,
   });
-
-  factory Team.fromJson(Map<String, dynamic> json) => Team(
-        id: json["id"],
-        name: json["name"],
-        surname: json["surname"],
-        country: json["country"],
-        region: json["region"],
-        position: json["position"],
-        status: json["status"],
-        lastUpdate: DateTime.parse(json["last_update"]),
-        pic: json["pic"],
-      );
 }

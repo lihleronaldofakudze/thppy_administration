@@ -11,9 +11,9 @@ class DesktopLogin extends StatefulWidget {
 class _DesktopLoginState extends State<DesktopLogin> {
   @override
   Widget build(BuildContext context) {
-    final _emailController = TextEditingController();
-    final _passwordController = TextEditingController();
-    bool _rememberMe = false;
+    final emailController = TextEditingController();
+    final passwordController = TextEditingController();
+    bool rememberMe = false;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -55,12 +55,12 @@ class _DesktopLoginState extends State<DesktopLogin> {
                                     TextBoxWidget(
                                         label: 'Email Address',
                                         isPassword: false,
-                                        controller: _emailController,
+                                        controller: emailController,
                                         type: TextInputType.emailAddress),
                                     TextBoxWidget(
                                         label: 'Password',
                                         isPassword: true,
-                                        controller: _passwordController,
+                                        controller: passwordController,
                                         type: TextInputType.visiblePassword),
                                     const SizedBox(
                                       height: 4,
@@ -75,7 +75,7 @@ class _DesktopLoginState extends State<DesktopLogin> {
                                         child: const Text(
                                           'Forgot Password?',
                                           style: TextStyle(
-                                            color: Colors.blue,
+                                            color: Colors.black,
                                           ),
                                         ),
                                       ),
@@ -86,10 +86,10 @@ class _DesktopLoginState extends State<DesktopLogin> {
                                     Row(
                                       children: [
                                         Checkbox(
-                                          value: _rememberMe,
+                                          value: rememberMe,
                                           onChanged: (value) {
                                             setState(() {
-                                              _rememberMe = value!;
+                                              rememberMe = value!;
                                             });
                                           },
                                         ),
@@ -111,7 +111,7 @@ class _DesktopLoginState extends State<DesktopLogin> {
                                       width: double.infinity,
                                       child: ElevatedButton(
                                         onPressed: () {
-                                          Navigator.pushNamed(context, '/home');
+                                          Navigator.pushNamed(context, '/');
                                         },
                                         child:
                                             const Text('Access your account'),
@@ -127,7 +127,7 @@ class _DesktopLoginState extends State<DesktopLogin> {
                           ),
                           Expanded(
                             child: Center(
-                              child: Image.asset(
+                              child: Image.network(
                                 'assets/images/logo.png',
                                 width: 200,
                                 height: 200,
@@ -141,7 +141,7 @@ class _DesktopLoginState extends State<DesktopLogin> {
                 ),
                 OutlinedButton(
                   style: OutlinedButton.styleFrom(
-                    primary: Colors.black,
+                    foregroundColor: Colors.black,
                   ),
                   onPressed: () {},
                   child: Text('Change to Dark Mode THEME'.toUpperCase()),

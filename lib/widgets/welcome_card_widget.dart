@@ -40,7 +40,7 @@ class WelcomeCardWidget extends StatelessWidget {
                         width: 50,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('assets/images/eswatini.png'),
+                            image: NetworkImage('assets/images/eswatini.png'),
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -50,7 +50,7 @@ class WelcomeCardWidget extends StatelessWidget {
                         width: 50,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('assets/images/lesotho.png'),
+                            image: NetworkImage('assets/images/lesotho.png'),
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -60,7 +60,7 @@ class WelcomeCardWidget extends StatelessWidget {
                         width: 50,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('assets/images/botswana.png'),
+                            image: NetworkImage('assets/images/botswana.png'),
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -78,7 +78,7 @@ class WelcomeCardWidget extends StatelessWidget {
                         width: 50,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('assets/images/nercha.png'),
+                            image: NetworkImage('assets/images/nercha.png'),
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -88,7 +88,7 @@ class WelcomeCardWidget extends StatelessWidget {
                         width: 50,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('assets/images/nac.jpg'),
+                            image: NetworkImage('assets/images/nac.jpg'),
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -98,7 +98,7 @@ class WelcomeCardWidget extends StatelessWidget {
                         width: 50,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('assets/images/nahp.png'),
+                            image: NetworkImage('assets/images/nahp.png'),
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -119,8 +119,8 @@ class WelcomeCardWidget extends StatelessWidget {
                               width: 50,
                               decoration: const BoxDecoration(
                                 image: DecorationImage(
-                                  image:
-                                      AssetImage('assets/images/limkokwin.png'),
+                                  image: NetworkImage(
+                                      'assets/images/limkokwin.png'),
                                   fit: BoxFit.contain,
                                 ),
                               ),
@@ -130,7 +130,7 @@ class WelcomeCardWidget extends StatelessWidget {
                               width: 50,
                               decoration: const BoxDecoration(
                                 image: DecorationImage(
-                                  image: AssetImage('assets/images/sadc.png'),
+                                  image: NetworkImage('assets/images/sadc.png'),
                                   fit: BoxFit.contain,
                                 ),
                               ),
@@ -147,8 +147,8 @@ class WelcomeCardWidget extends StatelessWidget {
                     child: Container(
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                          image:
-                              AssetImage('assets/images/admin-illustrator.png'),
+                          image: NetworkImage(
+                              'assets/images/admin-illustrator.png'),
                           fit: BoxFit.contain,
                         ),
                       ),

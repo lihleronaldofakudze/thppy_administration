@@ -66,7 +66,7 @@ class _MobileForgotPasswordState extends State<MobileForgotPassword> {
                                 width: double.infinity,
                                 child: ElevatedButton(
                                   onPressed: () {
-                                    Navigator.pushNamed(context, '/home');
+                                    Navigator.pushNamed(context, '/');
                                   },
                                   child: const Text('Reset your password'),
                                 ),

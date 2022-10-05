@@ -65,7 +65,7 @@ class _DesktopForgotPasswordState extends State<DesktopForgotPassword> {
                                       width: double.infinity,
                                       child: ElevatedButton(
                                         onPressed: () {
-                                          Navigator.pushNamed(context, '/home');
+                                          Navigator.pushNamed(context, '/');
                                         },
                                         child:
                                             const Text('Reset your password'),

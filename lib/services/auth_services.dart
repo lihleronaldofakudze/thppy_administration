@@ -14,4 +14,27 @@ class AuthServices {
   Stream<CurrentUser?> get user {
     return _auth.authStateChanges().map(_userFromFirebase);
   }
+
+  Future<CurrentUser?> login({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return _userFromFirebase(userCredential.user);
+    } catch (error) {
+      return null;
+    }
+  }
+
+  Future? logout() {
+    try {
+      return _auth.signOut();
+    } catch (error) {
+      return null;
+    }
+  }
 }

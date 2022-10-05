@@ -5,40 +5,11 @@ import 'package:thppy_administration/models/Draw.dart';
 class Constants {
   final Color bgDark = const Color.fromRGBO(30, 31, 35, 1);
 
-  // Dashboard
-  // Users
-  // Youth
-  // Countries
-  // Centers
-  // Regions
-  // Ambassadors
-  // Blogs
-  // Bootcamps
-  // Bootcamp Events
-  // Chats
-  // Comments
-  // FAQ
-  // Gallery
-  // Interactions
-  // Linkages
-  // Media
-  // Messages
-  // Quiz
-  // Quiz Groups
-  // Quiz Responses
-  // Services
-  // Social Media
-  // Social Media Analysis
-  // Teams
-  // Trainers
-  // About
-  // Permissions
-
   final drawee = [
     Draw(
       title: 'Dashboard',
       icon: Icons.home,
-      route: '/home',
+      route: '/',
     ),
     Draw(
       title: 'Users',

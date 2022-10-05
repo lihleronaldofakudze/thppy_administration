@@ -33,6 +33,9 @@ class DrawerWidget extends StatelessWidget {
                 ),
                 title: Text(
                   Constants().drawee[index].title,
+                  style: const TextStyle(
+                    color: Colors.black,
+                  ),
                 ),
               ),
             );

@@ -66,7 +66,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => const AuthStateScreen(),
           '/login': (context) => const LoginScreen(),
-          '/home': (context) => const HomeScreen(),
+          '/': (context) => const HomeScreen(),
           '/forgot_password': (context) => const ForgotPasswordScreen(),
           '/countries': (context) => const CountriesScreen(),
           '/users': (context) => const UsersScreen(),
@@ -103,7 +103,13 @@ class MyApp extends StatelessWidget {
           textTheme: GoogleFonts.nunitoTextTheme(
             Theme.of(context).textTheme,
           ),
-          useMaterial3: true,
+          // useMaterial3: true,
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.red,
+              foregroundColor: Colors.white,
+            ),
+          ),
         ),
       ),
     );

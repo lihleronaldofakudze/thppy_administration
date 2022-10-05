@@ -11,9 +11,9 @@ class MobileLogin extends StatefulWidget {
 class _MobileLoginState extends State<MobileLogin> {
   @override
   Widget build(BuildContext context) {
-    final _emailController = TextEditingController();
-    final _passwordController = TextEditingController();
-    bool _rememberMe = false;
+    final emailController = TextEditingController();
+    final passwordController = TextEditingController();
+    bool rememberMe = false;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -56,12 +56,12 @@ class _MobileLoginState extends State<MobileLogin> {
                               TextBoxWidget(
                                   label: 'Email Address',
                                   isPassword: false,
-                                  controller: _emailController,
+                                  controller: emailController,
                                   type: TextInputType.emailAddress),
                               TextBoxWidget(
                                   label: 'Password',
                                   isPassword: true,
-                                  controller: _passwordController,
+                                  controller: passwordController,
                                   type: TextInputType.visiblePassword),
                               const SizedBox(
                                 height: 4,
@@ -87,10 +87,10 @@ class _MobileLoginState extends State<MobileLogin> {
                               Row(
                                 children: [
                                   Checkbox(
-                                    value: _rememberMe,
+                                    value: rememberMe,
                                     onChanged: (value) {
                                       setState(() {
-                                        _rememberMe = value!;
+                                        rememberMe = value!;
                                       });
                                     },
                                   ),
@@ -112,7 +112,7 @@ class _MobileLoginState extends State<MobileLogin> {
                                 width: double.infinity,
                                 child: ElevatedButton(
                                   onPressed: () {
-                                    Navigator.pushNamed(context, '/home');
+                                    Navigator.pushNamed(context, '/');
                                   },
                                   child: const Text('Access your account'),
                                 ),
@@ -129,7 +129,7 @@ class _MobileLoginState extends State<MobileLogin> {
                 ),
                 OutlinedButton(
                   style: OutlinedButton.styleFrom(
-                    primary: Colors.black,
+                    foregroundColor: Colors.black,
                   ),
                   onPressed: () {},
                   child: Text('Change to Dark Mode THEME'.toUpperCase()),

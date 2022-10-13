@@ -1,29 +1,31 @@
-// id	natid	name	surname	gender	country_name	region_name	last_update	center_name	age	pic	status
-
 class Youth {
-  final int id;
-  final String natid;
+  final String uid;
+  final String nationalId;
+  final String phoneNumber;
+  final String emailAddress;
   final String name;
   final String surname;
   final String gender;
-  final String countryName;
-  final String regionName;
-  final DateTime lastUpdate;
-  final String centerName;
-  final String pic;
-  final String status;
+  final String country;
+  final String city;
+  final String center;
+  final String image;
+  final String role;
+  final String age;
 
   Youth({
-    required this.id,
-    required this.natid,
+    required this.uid,
+    required this.nationalId,
     required this.name,
+    required this.emailAddress,
+    required this.phoneNumber,
+    required this.age,
+    required this.city,
     required this.surname,
     required this.gender,
-    required this.countryName,
-    required this.regionName,
-    required this.lastUpdate,
-    required this.centerName,
-    required this.pic,
-    required this.status,
+    required this.country,
+    required this.center,
+    required this.image,
+    required this.role,
   });
 }

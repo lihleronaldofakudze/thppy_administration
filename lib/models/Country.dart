@@ -1,13 +1,9 @@
 class Country {
   final String id;
-  final String countryName;
-  final DateTime lastUpdate;
-  final String status;
+  final String country;
 
   Country({
     required this.id,
-    required this.countryName,
-    required this.lastUpdate,
-    required this.status,
+    required this.country,
   });
 }

@@ -1,4 +1,8 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:thppy_administration/services/auth_services.dart';
 import 'package:thppy_administration/widgets/text_box_widget.dart';
 
 class DesktopLogin extends StatefulWidget {
@@ -9,11 +13,11 @@ class DesktopLogin extends StatefulWidget {
 }
 
 class _DesktopLoginState extends State<DesktopLogin> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  bool rememberMe = false;
   @override
   Widget build(BuildContext context) {
-    final emailController = TextEditingController();
-    final passwordController = TextEditingController();
-    bool rememberMe = false;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -53,15 +57,17 @@ class _DesktopLoginState extends State<DesktopLogin> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     TextBoxWidget(
-                                        label: 'Email Address',
-                                        isPassword: false,
-                                        controller: emailController,
-                                        type: TextInputType.emailAddress),
+                                      label: 'Email Address',
+                                      isPassword: false,
+                                      controller: _emailController,
+                                      type: TextInputType.emailAddress,
+                                    ),
                                     TextBoxWidget(
-                                        label: 'Password',
-                                        isPassword: true,
-                                        controller: passwordController,
-                                        type: TextInputType.visiblePassword),
+                                      label: 'Password',
+                                      isPassword: true,
+                                      controller: _passwordController,
+                                      type: TextInputType.visiblePassword,
+                                    ),
                                     const SizedBox(
                                       height: 4,
                                     ),
@@ -110,9 +116,7 @@ class _DesktopLoginState extends State<DesktopLogin> {
                                     SizedBox(
                                       width: double.infinity,
                                       child: ElevatedButton(
-                                        onPressed: () {
-                                          Navigator.pushNamed(context, '/');
-                                        },
+                                        onPressed: _login,
                                         child:
                                             const Text('Access your account'),
                                       ),
@@ -150,5 +154,37 @@ class _DesktopLoginState extends State<DesktopLogin> {
         ),
       ),
     );
+  }
+
+  _login() async {
+    if (_emailController.text.isNotEmpty &&
+        _passwordController.text.isNotEmpty) {
+      final result = await AuthServices().login(
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
+
+      if (result != null) {
+        Navigator.pushNamed(context, '/');
+      } else {
+        AwesomeDialog(
+          width: MediaQuery.of(context).size.width / 2,
+          context: context,
+          dialogType: DialogType.error,
+          title: 'Error',
+          desc: 'Something went wrong, please try again.',
+          btnOkOnPress: () {},
+        ).show();
+      }
+    } else {
+      AwesomeDialog(
+        width: MediaQuery.of(context).size.width / 2,
+        context: context,
+        dialogType: DialogType.error,
+        title: 'Error',
+        desc: 'Please enter all required details',
+        btnOkOnPress: () {},
+      ).show();
+    }
   }
 }

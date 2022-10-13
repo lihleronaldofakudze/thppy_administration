@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thppy_administration/responsive.dart';
-import 'package:thppy_administration/screens/desktop/desktop_ambassadors.dart';
-import 'package:thppy_administration/screens/mobile/mobile_ambassadors.dart';
+import 'package:thppy_administration/widgets/drawer_widget.dart';
 
 class AmbassadorsScreen extends StatefulWidget {
   const AmbassadorsScreen({Key? key}) : super(key: key);
@@ -13,9 +11,24 @@ class AmbassadorsScreen extends StatefulWidget {
 class _AmbassadorsScreenState extends State<AmbassadorsScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Responsive(
-      mobile: MobileAmbassadors(),
-      desktop: DesktopAmbassadors(),
+    return Scaffold(
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        label: const Text('Add New Ambassador'),
+        icon: const Icon(
+          Icons.add_rounded,
+        ),
+      ),
+      drawer: const DrawerWidget(),
+      appBar: AppBar(
+        title: const Text('Ambassadors Data Management'),
+        actions: [
+          TextButton(
+            onPressed: () {},
+            child: const Text('Generate Excel'),
+          ),
+        ],
+      ),
     );
   }
 }

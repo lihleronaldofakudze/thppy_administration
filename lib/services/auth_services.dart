@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:thppy_administration/models/CurrentUser.dart';
 
 class AuthServices {
@@ -7,7 +8,10 @@ class AuthServices {
   CurrentUser? _userFromFirebase(User? user) {
     return user != null
         ? CurrentUser(
-            uid: user.uid, email: user.email, isVerified: user.emailVerified)
+            uid: user.uid,
+            email: user.email,
+            isVerified: user.emailVerified,
+          )
         : null;
   }
 
@@ -26,6 +30,7 @@ class AuthServices {
       );
       return _userFromFirebase(userCredential.user);
     } catch (error) {
+      debugPrint(error.toString());
       return null;
     }
   }
@@ -34,6 +39,7 @@ class AuthServices {
     try {
       return _auth.signOut();
     } catch (error) {
+      debugPrint(error.toString());
       return null;
     }
   }

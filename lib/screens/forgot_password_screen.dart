@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thppy_administration/responsive.dart';
-import 'package:thppy_administration/screens/desktop/desktop_forgot_password.dart';
-import 'package:thppy_administration/screens/mobile/mobile_forgot_password.dart';
+import 'package:thppy_administration/widgets/drawer_widget.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({Key? key}) : super(key: key);
@@ -13,9 +11,24 @@ class ForgotPasswordScreen extends StatefulWidget {
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Responsive(
-      mobile: MobileForgotPassword(),
-      desktop: DesktopForgotPassword(),
+    return Scaffold(
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        label: const Text('Add New Country'),
+        icon: const Icon(
+          Icons.add_rounded,
+        ),
+      ),
+      drawer: const DrawerWidget(),
+      appBar: AppBar(
+        title: const Text('Youth Data Management'),
+        actions: [
+          TextButton(
+            onPressed: () {},
+            child: const Text('Generate Excel'),
+          ),
+        ],
+      ),
     );
   }
 }

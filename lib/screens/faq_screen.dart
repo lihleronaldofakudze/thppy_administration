@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thppy_administration/responsive.dart';
-import 'package:thppy_administration/screens/desktop/desktop_faq.dart';
-import 'package:thppy_administration/screens/mobile/mobile_faq.dart';
+import 'package:thppy_administration/widgets/drawer_widget.dart';
 
 class FAQScreen extends StatefulWidget {
   const FAQScreen({Key? key}) : super(key: key);
@@ -13,9 +11,24 @@ class FAQScreen extends StatefulWidget {
 class _FAQScreenState extends State<FAQScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Responsive(
-      mobile: MobileFAQ(),
-      desktop: DesktopFAQ(),
+    return Scaffold(
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        label: const Text('Add New FAQ'),
+        icon: const Icon(
+          Icons.add_rounded,
+        ),
+      ),
+      drawer: const DrawerWidget(),
+      appBar: AppBar(
+        title: const Text('FAQ Data Management'),
+        actions: [
+          TextButton(
+            onPressed: () {},
+            child: const Text('Generate Excel'),
+          ),
+        ],
+      ),
     );
   }
 }

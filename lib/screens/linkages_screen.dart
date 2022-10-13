@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thppy_administration/responsive.dart';
-import 'package:thppy_administration/screens/desktop/desktop_interactions.dart';
-import 'package:thppy_administration/screens/mobile/mobile_linkages.dart';
+import 'package:thppy_administration/widgets/drawer_widget.dart';
 
 class LinkagesScreen extends StatefulWidget {
   const LinkagesScreen({Key? key}) : super(key: key);
@@ -13,9 +11,24 @@ class LinkagesScreen extends StatefulWidget {
 class _LinkagesScreenState extends State<LinkagesScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Responsive(
-      mobile: MobileLinkages(),
-      desktop: DesktopInteractions(),
+    return Scaffold(
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        label: const Text('Add New Country'),
+        icon: const Icon(
+          Icons.add_rounded,
+        ),
+      ),
+      drawer: const DrawerWidget(),
+      appBar: AppBar(
+        title: const Text('Linkages Data Management'),
+        actions: [
+          TextButton(
+            onPressed: () {},
+            child: const Text('Generate Excel'),
+          ),
+        ],
+      ),
     );
   }
 }

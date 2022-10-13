@@ -12,11 +12,6 @@ class Constants {
       route: '/',
     ),
     Draw(
-      title: 'Users',
-      icon: Icons.people,
-      route: '/users',
-    ),
-    Draw(
       title: 'Youth',
       icon: Icons.child_care,
       route: '/youth',

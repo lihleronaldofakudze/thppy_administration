@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:thppy_administration/firebase_options.dart';
+import 'package:thppy_administration/models/CityCenter.dart';
+import 'package:thppy_administration/models/Country.dart';
 import 'package:thppy_administration/models/CurrentUser.dart';
+import 'package:thppy_administration/models/Youth.dart';
 import 'package:thppy_administration/screens/about_screen.dart';
 import 'package:thppy_administration/screens/ambassadors_screen.dart';
 import 'package:thppy_administration/screens/auth_state_screen.dart';
@@ -17,10 +20,8 @@ import 'package:thppy_administration/screens/countries_screen.dart';
 import 'package:thppy_administration/screens/faq_screen.dart';
 import 'package:thppy_administration/screens/forgot_password_screen.dart';
 import 'package:thppy_administration/screens/gallery_screen.dart';
-import 'package:thppy_administration/screens/home_screen.dart';
 import 'package:thppy_administration/screens/interactions_screen.dart';
 import 'package:thppy_administration/screens/linkages_screen.dart';
-import 'package:thppy_administration/screens/login_screen.dart';
 import 'package:thppy_administration/screens/messages_screen.dart';
 import 'package:thppy_administration/screens/partners_screen.dart';
 import 'package:thppy_administration/screens/permissions_screen.dart';
@@ -34,9 +35,11 @@ import 'package:thppy_administration/screens/social_media_analysis_screen.dart';
 import 'package:thppy_administration/screens/social_media_screen.dart';
 import 'package:thppy_administration/screens/teams_screen.dart';
 import 'package:thppy_administration/screens/trainers_screen.dart';
-import 'package:thppy_administration/screens/users_screen.dart';
 import 'package:thppy_administration/screens/youth_screen.dart';
 import 'package:thppy_administration/services/auth_services.dart';
+import 'package:thppy_administration/services/centers_services.dart';
+import 'package:thppy_administration/services/countries_services.dart';
+import 'package:thppy_administration/services/youth_services.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 void main() async {
@@ -59,17 +62,26 @@ class MyApp extends StatelessWidget {
           value: AuthServices().user,
           initialData: CurrentUser(),
         ),
+        StreamProvider<List<Youth>>.value(
+          value: YouthServices().youngPeople,
+          initialData: const [],
+        ),
+        StreamProvider<List<Country>>.value(
+          value: CountrieService().countries,
+          initialData: const [],
+        ),
+        StreamProvider<List<CityCenter>>.value(
+          value: CenterService().centers,
+          initialData: const [],
+        ),
       ],
       child: MaterialApp(
         title: 'THPPY Administration',
         debugShowCheckedModeBanner: false,
         routes: {
           '/': (context) => const AuthStateScreen(),
-          '/login': (context) => const LoginScreen(),
-          '/': (context) => const HomeScreen(),
           '/forgot_password': (context) => const ForgotPasswordScreen(),
           '/countries': (context) => const CountriesScreen(),
-          '/users': (context) => const UsersScreen(),
           '/centers': (context) => const CentersScreen(),
           '/about': (context) => const AboutScreen(),
           '/ambassadors': (context) => const AmbassadorsScreen(),
@@ -84,7 +96,6 @@ class MyApp extends StatelessWidget {
           '/messages': (context) => const MessagesScreen(),
           '/partners': (context) => const PartnersScreen(),
           '/linkages': (context) => const LinkagesScreen(),
-          '/permissions': (context) => const PermissionsScreen(),
           '/quiz': (context) => const QuizScreen(),
           '/quiz_groups': (context) => const QuizGroupsScreen(),
           '/quiz_responses': (context) => const QuizResponsesScreen(),
@@ -97,13 +108,14 @@ class MyApp extends StatelessWidget {
           '/teams': (context) => const TeamsScreen(),
           '/trainers': (context) => const TrainersScreen(),
           '/youth': (context) => const YouthScreen(),
+          '/permissions': (context) => const PermissionsScreen(),
         },
         theme: ThemeData(
           primarySwatch: Colors.red,
           textTheme: GoogleFonts.nunitoTextTheme(
             Theme.of(context).textTheme,
           ),
-          // useMaterial3: true,
+          useMaterial3: true,
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.red,

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thppy_administration/responsive.dart';
-import 'package:thppy_administration/screens/desktop/desktop_quiz.dart';
-import 'package:thppy_administration/screens/mobile/mobile_quiz.dart';
+import 'package:thppy_administration/widgets/drawer_widget.dart';
 
 class QuizScreen extends StatefulWidget {
   const QuizScreen({Key? key}) : super(key: key);
@@ -13,9 +11,24 @@ class QuizScreen extends StatefulWidget {
 class _QuizScreenState extends State<QuizScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Responsive(
-      mobile: MobileQuiz(),
-      desktop: DesktopQuiz(),
+    return Scaffold(
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        label: const Text('Add New Country'),
+        icon: const Icon(
+          Icons.add_rounded,
+        ),
+      ),
+      drawer: const DrawerWidget(),
+      appBar: AppBar(
+        title: const Text('Quiz Data Management'),
+        actions: [
+          TextButton(
+            onPressed: () {},
+            child: const Text('Generate Excel'),
+          ),
+        ],
+      ),
     );
   }
 }

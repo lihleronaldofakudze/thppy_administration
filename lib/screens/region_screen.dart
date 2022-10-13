@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thppy_administration/responsive.dart';
-import 'package:thppy_administration/screens/desktop/desktop_regions.dart';
-import 'package:thppy_administration/screens/mobile/mobile_regions.dart';
+import 'package:thppy_administration/widgets/drawer_widget.dart';
 
 class RegionsScreen extends StatefulWidget {
   const RegionsScreen({Key? key}) : super(key: key);
@@ -13,9 +11,24 @@ class RegionsScreen extends StatefulWidget {
 class _RegionsScreenState extends State<RegionsScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Responsive(
-      mobile: MobileRegions(),
-      desktop: DesktopRegions(),
+    return Scaffold(
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        label: const Text('Add New Region'),
+        icon: const Icon(
+          Icons.add_rounded,
+        ),
+      ),
+      drawer: const DrawerWidget(),
+      appBar: AppBar(
+        title: const Text('Region Data Management'),
+        actions: [
+          TextButton(
+            onPressed: () {},
+            child: const Text('Generate Excel'),
+          ),
+        ],
+      ),
     );
   }
 }

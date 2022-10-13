@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thppy_administration/responsive.dart';
-import 'package:thppy_administration/screens/desktop/desktop_reactions.dart';
-import 'package:thppy_administration/screens/mobile/mobile_reactions.dart';
+import 'package:thppy_administration/widgets/drawer_widget.dart';
 
 class ReactionsScreen extends StatefulWidget {
   const ReactionsScreen({Key? key}) : super(key: key);
@@ -13,9 +11,24 @@ class ReactionsScreen extends StatefulWidget {
 class _ReactionsScreenState extends State<ReactionsScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Responsive(
-      mobile: MobileReactions(),
-      desktop: DesktopReactions(),
+    return Scaffold(
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        label: const Text('Add New Country'),
+        icon: const Icon(
+          Icons.add_rounded,
+        ),
+      ),
+      drawer: const DrawerWidget(),
+      appBar: AppBar(
+        title: const Text('Reactions Data Management'),
+        actions: [
+          TextButton(
+            onPressed: () {},
+            child: const Text('Generate Excel'),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -23,9 +23,20 @@ class _MessagesScreenState extends State<MessagesScreen> {
       appBar: AppBar(
         title: const Text('Messages Data Management'),
         actions: [
-          TextButton(
+          IconButton(
             onPressed: () {},
-            child: const Text('Generate Excel'),
+            icon: const Icon(
+              Icons.search_rounded,
+              color: Colors.red,
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.description_rounded,
+              color: Colors.green,
+            ),
+            tooltip: 'Generate Excel',
           ),
         ],
       ),

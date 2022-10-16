@@ -24,9 +24,20 @@ class _SocialMediaAnalysisScreenState extends State<SocialMediaAnalysisScreen> {
       appBar: AppBar(
         title: const Text('Social Media Analysis Data Management'),
         actions: [
-          TextButton(
+          IconButton(
             onPressed: () {},
-            child: const Text('Generate Excel'),
+            icon: const Icon(
+              Icons.search_rounded,
+              color: Colors.red,
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.description_rounded,
+              color: Colors.green,
+            ),
+            tooltip: 'Generate Excel',
           ),
         ],
       ),

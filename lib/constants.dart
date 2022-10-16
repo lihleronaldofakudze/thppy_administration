@@ -22,14 +22,14 @@ class Constants {
       route: '/countries',
     ),
     Draw(
-      title: 'Centers',
-      icon: Icons.school,
-      route: '/centers',
-    ),
-    Draw(
       title: 'Regions',
       icon: Icons.location_city,
       route: '/regions',
+    ),
+    Draw(
+      title: 'Centers',
+      icon: Icons.school,
+      route: '/centers',
     ),
     Draw(
       title: 'Ambassadors',

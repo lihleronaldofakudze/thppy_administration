@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:thppy_administration/models/CityCenter.dart';
 import 'package:thppy_administration/services/youth_services.dart';
 import 'package:thppy_administration/widgets/drawer_widget.dart';
-import 'package:thppy_administration/widgets/loading_widget.dart';
 
 class CentersScreen extends StatefulWidget {
   const CentersScreen({Key? key}) : super(key: key);
@@ -30,62 +29,71 @@ class _CentersScreenState extends State<CentersScreen> {
       appBar: AppBar(
         title: const Text('Centers Data Management'),
         actions: [
-          TextButton(
+          IconButton(
             onPressed: () {},
-            child: const Text('Generate Excel'),
+            icon: const Icon(
+              Icons.search_rounded,
+              color: Colors.red,
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.description_rounded,
+              color: Colors.green,
+            ),
+            tooltip: 'Generate Excel',
           ),
         ],
       ),
-      body: isLoading
-          ? const LoadingWidget()
-          : Container(
-              alignment: Alignment.topCenter,
-              width: double.infinity,
-              padding: const EdgeInsets.all(10),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: DataTable(
-                    showBottomBorder: true,
-                    columns: const [
-                      DataColumn(label: Text('Country')),
-                      DataColumn(label: Text('Region')),
-                      DataColumn(label: Text('Center')),
-                    ],
-                    rows: centers
-                        .map(
-                          (center) => DataRow(
-                            cells: [
-                              DataCell(
-                                Text(center.center),
-                                onTap: () => _onClick(
-                                  id: center.id,
-                                  name: center.country,
-                                ),
-                              ),
-                              DataCell(
-                                Text(center.center),
-                                onTap: () => _onClick(
-                                  id: center.id,
-                                  name: center.region,
-                                ),
-                              ),
-                              DataCell(
-                                Text(center.center),
-                                onTap: () => _onClick(
-                                  id: center.id,
-                                  name: center.center,
-                                ),
-                              ),
-                            ],
+      body: Container(
+        alignment: Alignment.topCenter,
+        width: double.infinity,
+        padding: const EdgeInsets.all(10),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: DataTable(
+              showBottomBorder: true,
+              columns: const [
+                DataColumn(label: Text('Country')),
+                DataColumn(label: Text('Region')),
+                DataColumn(label: Text('Center')),
+              ],
+              rows: centers
+                  .map(
+                    (center) => DataRow(
+                      cells: [
+                        DataCell(
+                          Text(center.center),
+                          onTap: () => _onClick(
+                            id: center.id,
+                            name: center.country,
                           ),
-                        )
-                        .toList(),
-                  ),
-                ),
-              ),
+                        ),
+                        DataCell(
+                          Text(center.center),
+                          onTap: () => _onClick(
+                            id: center.id,
+                            name: center.region,
+                          ),
+                        ),
+                        DataCell(
+                          Text(center.center),
+                          onTap: () => _onClick(
+                            id: center.id,
+                            name: center.center,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                  .toList(),
             ),
+          ),
+        ),
+      ),
     );
   }
 

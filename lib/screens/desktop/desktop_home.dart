@@ -17,7 +17,7 @@ class _DesktopHomeState extends State<DesktopHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBarWidget(),
+      appBar: appBarWidget(context: context),
       body: Row(
         children: [
           const Expanded(

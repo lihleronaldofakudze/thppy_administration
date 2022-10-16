@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:thppy_administration/models/Youth.dart';
 import 'package:thppy_administration/services/youth_services.dart';
 import 'package:thppy_administration/widgets/drawer_widget.dart';
-import 'package:thppy_administration/widgets/loading_widget.dart';
 
 class YouthScreen extends StatefulWidget {
   const YouthScreen({Key? key}) : super(key: key);
@@ -14,8 +13,6 @@ class YouthScreen extends StatefulWidget {
 }
 
 class _YouthScreenState extends State<YouthScreen> {
-  final bool _isLoading = false;
-
   @override
   Widget build(BuildContext context) {
     final people = Provider.of<List<Youth>>(context);
@@ -31,139 +28,147 @@ class _YouthScreenState extends State<YouthScreen> {
       appBar: AppBar(
         title: const Text('Youth Data Management'),
         actions: [
-          TextButton(
+          IconButton(
             onPressed: () {},
-            child: const Text('Generate Excel'),
+            icon: const Icon(
+              Icons.search_rounded,
+              color: Colors.red,
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.description_rounded,
+              color: Colors.green,
+            ),
+            tooltip: 'Generate Excel',
           ),
         ],
       ),
-      body: _isLoading
-          ? const LoadingWidget()
-          : Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(10),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: DataTable(
-                    showBottomBorder: true,
-                    // headingTextStyle: const TextStyle(
-                    //   fontWeight: FontWeight.bold,
-                    // ),
-                    columns: const [
-                      DataColumn(label: Text('Image')),
-                      DataColumn(label: Text('National ID')),
-                      DataColumn(label: Text('Name')),
-                      DataColumn(label: Text('Surname')),
-                      DataColumn(label: Text('Phone Number')),
-                      DataColumn(label: Text('Gender')),
-                      DataColumn(label: Text('Age')),
-                      DataColumn(label: Text('Email Address')),
-                      DataColumn(label: Text('Country')),
-                      DataColumn(label: Text('City')),
-                      DataColumn(label: Text('Center')),
-                    ],
-                    rows: people
-                        .map(
-                          (person) => DataRow(
-                            cells: [
-                              DataCell(
-                                CircleAvatar(
-                                  backgroundImage: NetworkImage(
-                                    person.image,
-                                  ),
-                                  backgroundColor: Colors.white,
-                                ),
-                              ),
-                              DataCell(
-                                Text(person.nationalId),
-                                onTap: () => _onClick(
-                                  id: person.uid,
-                                  name: person.name,
-                                  surname: person.surname,
-                                ),
-                              ),
-                              DataCell(
-                                Text(person.name),
-                                onTap: () => _onClick(
-                                  id: person.uid,
-                                  name: person.name,
-                                  surname: person.surname,
-                                ),
-                              ),
-                              DataCell(
-                                Text(person.surname),
-                                onTap: () => _onClick(
-                                  id: person.uid,
-                                  name: person.name,
-                                  surname: person.surname,
-                                ),
-                              ),
-                              DataCell(
-                                Text(person.phoneNumber),
-                                onTap: () => _onClick(
-                                  id: person.uid,
-                                  name: person.name,
-                                  surname: person.surname,
-                                ),
-                              ),
-                              DataCell(
-                                Text(person.gender),
-                                onTap: () => _onClick(
-                                  id: person.uid,
-                                  name: person.name,
-                                  surname: person.surname,
-                                ),
-                              ),
-                              DataCell(
-                                Text(person.age),
-                                onTap: () => _onClick(
-                                  id: person.uid,
-                                  name: person.name,
-                                  surname: person.surname,
-                                ),
-                              ),
-                              DataCell(
-                                Text(person.emailAddress),
-                                onTap: () => _onClick(
-                                  id: person.uid,
-                                  name: person.name,
-                                  surname: person.surname,
-                                ),
-                              ),
-                              DataCell(
-                                Text(person.country),
-                                onTap: () => _onClick(
-                                  id: person.uid,
-                                  name: person.name,
-                                  surname: person.surname,
-                                ),
-                              ),
-                              DataCell(
-                                Text(person.city),
-                                onTap: () => _onClick(
-                                  id: person.uid,
-                                  name: person.name,
-                                  surname: person.surname,
-                                ),
-                              ),
-                              DataCell(
-                                Text(person.center),
-                                onTap: () => _onClick(
-                                  id: person.uid,
-                                  name: person.name,
-                                  surname: person.surname,
-                                ),
-                              ),
-                            ],
+      body: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(10),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: DataTable(
+              showCheckboxColumn: false,
+              showBottomBorder: true,
+              columns: const [
+                DataColumn(label: Text('Image')),
+                DataColumn(label: Text('National ID')),
+                DataColumn(label: Text('Name')),
+                DataColumn(label: Text('Surname')),
+                DataColumn(label: Text('Phone Number')),
+                DataColumn(label: Text('Gender')),
+                DataColumn(label: Text('Age')),
+                DataColumn(label: Text('Email Address')),
+                DataColumn(label: Text('Country')),
+                DataColumn(label: Text('City')),
+                DataColumn(label: Text('Center')),
+              ],
+              rows: people
+                  .map(
+                    (person) => DataRow(
+                      onSelectChanged: (value) {},
+                      cells: [
+                        DataCell(
+                          CircleAvatar(
+                            backgroundImage: NetworkImage(
+                              person.image,
+                            ),
+                            backgroundColor: Colors.white,
                           ),
-                        )
-                        .toList(),
-                  ),
-                ),
-              ),
+                        ),
+                        DataCell(
+                          Text(person.nationalId),
+                          onTap: () => _onClick(
+                            id: person.uid,
+                            name: person.name,
+                            surname: person.surname,
+                          ),
+                        ),
+                        DataCell(
+                          Text(person.name),
+                          onTap: () => _onClick(
+                            id: person.uid,
+                            name: person.name,
+                            surname: person.surname,
+                          ),
+                        ),
+                        DataCell(
+                          Text(person.surname),
+                          onTap: () => _onClick(
+                            id: person.uid,
+                            name: person.name,
+                            surname: person.surname,
+                          ),
+                        ),
+                        DataCell(
+                          Text(person.phoneNumber),
+                          onTap: () => _onClick(
+                            id: person.uid,
+                            name: person.name,
+                            surname: person.surname,
+                          ),
+                        ),
+                        DataCell(
+                          Text(person.gender),
+                          onTap: () => _onClick(
+                            id: person.uid,
+                            name: person.name,
+                            surname: person.surname,
+                          ),
+                        ),
+                        DataCell(
+                          Text(person.age),
+                          onTap: () => _onClick(
+                            id: person.uid,
+                            name: person.name,
+                            surname: person.surname,
+                          ),
+                        ),
+                        DataCell(
+                          Text(person.emailAddress),
+                          onTap: () => _onClick(
+                            id: person.uid,
+                            name: person.name,
+                            surname: person.surname,
+                          ),
+                        ),
+                        DataCell(
+                          Text(person.country),
+                          onTap: () => _onClick(
+                            id: person.uid,
+                            name: person.name,
+                            surname: person.surname,
+                          ),
+                        ),
+                        DataCell(
+                          Text(person.city),
+                          onTap: () => _onClick(
+                            id: person.uid,
+                            name: person.name,
+                            surname: person.surname,
+                          ),
+                        ),
+                        DataCell(
+                          Text(person.center),
+                          onTap: () => _onClick(
+                            id: person.uid,
+                            name: person.name,
+                            surname: person.surname,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                  .toList(),
             ),
+          ),
+        ),
+      ),
     );
   }
 
@@ -181,16 +186,8 @@ class _YouthScreenState extends State<YouthScreen> {
           'You just clicked $name $surname. Make a change or click away to cancel',
       btnCancelText: 'Delete',
       btnCancelOnPress: () => _delete(id: id, name: name, surname: surname),
-      // btnOkText: 'Update',
-      // btnOkOnPress: () => _update(id: id, name: name, surname: surname),
     ).show();
   }
-
-  void _update({
-    required String id,
-    required String name,
-    required String surname,
-  }) {}
 
   void _delete({
     required String id,

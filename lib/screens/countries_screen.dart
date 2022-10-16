@@ -8,7 +8,6 @@ import 'package:thppy_administration/services/countries_services.dart';
 
 import 'package:thppy_administration/widgets/drawer_widget.dart';
 
-import 'package:thppy_administration/widgets/loading_widget.dart';
 import 'package:thppy_administration/widgets/text_box_widget.dart';
 
 class CountriesScreen extends StatefulWidget {
@@ -19,7 +18,6 @@ class CountriesScreen extends StatefulWidget {
 }
 
 class _CountriesScreenState extends State<CountriesScreen> {
-  final bool _isLoading = false;
   final TextEditingController _countryController = TextEditingController();
 
   @override
@@ -27,7 +25,7 @@ class _CountriesScreenState extends State<CountriesScreen> {
     final countries = Provider.of<List<Country>>(context);
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+        onPressed: _add,
         label: const Text('Add New Country'),
         icon: const Icon(
           Icons.add_rounded,
@@ -37,44 +35,53 @@ class _CountriesScreenState extends State<CountriesScreen> {
       appBar: AppBar(
         title: const Text('Countries Data Management'),
         actions: [
-          TextButton(
+          IconButton(
             onPressed: () {},
-            child: const Text('Generate Excel'),
+            icon: const Icon(
+              Icons.search_rounded,
+              color: Colors.red,
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.description_rounded,
+              color: Colors.green,
+            ),
+            tooltip: 'Generate Excel',
           ),
         ],
       ),
-      body: _isLoading
-          ? const LoadingWidget()
-          : Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Wrap(
-                children: countries
-                    .map(
-                      (country) => MouseRegion(
-                        cursor: SystemMouseCursors.click,
-                        child: InkWell(
-                          onTap: () => _onClick(
-                            id: country.id,
-                            name: country.country,
-                          ),
-                          child: Chip(
-                            padding: const EdgeInsets.all(16),
-                            backgroundColor: Colors.red,
-                            elevation: 8,
-                            label: Text(
-                              country.country,
-                              style: const TextStyle(
-                                fontSize: 25,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Wrap(
+          children: countries
+              .map(
+                (country) => MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: InkWell(
+                    onTap: () => _onClick(
+                      id: country.id,
+                      name: country.country,
+                    ),
+                    child: Chip(
+                      padding: const EdgeInsets.all(16),
+                      backgroundColor: Colors.red,
+                      elevation: 8,
+                      label: Text(
+                        country.country,
+                        style: const TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
                         ),
                       ),
-                    )
-                    .toList(),
-              ),
-            ),
+                    ),
+                  ),
+                ),
+              )
+              .toList(),
+        ),
+      ),
     );
   }
 
@@ -128,7 +135,40 @@ class _CountriesScreenState extends State<CountriesScreen> {
   void _update({
     required String id,
     required String name,
-  }) {}
+  }) {
+    _countryController.text = name;
+
+    AwesomeDialog(
+      width: MediaQuery.of(context).size.width / 2,
+      context: context,
+      dialogType: DialogType.info,
+      body: TextBoxWidget(
+        controller: _countryController,
+        label: 'Enter country name',
+        isPassword: false,
+        type: TextInputType.text,
+      ),
+      btnCancelOnPress: () {},
+      btnOkText: 'Save',
+      btnOkOnPress: () async {
+        if (_countryController.text.isNotEmpty) {
+          await CountrieService(countryId: id).updateCountry(
+            country: _countryController.text,
+          );
+        } else {
+          Fluttertoast.showToast(
+            msg: "Please enter country name first",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 1,
+            backgroundColor: Colors.red,
+            textColor: Colors.white,
+            fontSize: 16.0,
+          );
+        }
+      },
+    ).show();
+  }
 
   void _delete({
     required String id,

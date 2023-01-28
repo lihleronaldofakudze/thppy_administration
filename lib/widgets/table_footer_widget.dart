@@ -20,7 +20,7 @@ class TableFooterWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ElevatedButton(
-            style: ElevatedButton.styleFrom(primary: Colors.orange),
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.orange),
             onPressed: onUpdatePressed,
             child: Text('Update $title'),
           ),

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:thppy_administration/models/CurrentUser.dart';
-import 'package:thppy_administration/models/Youth.dart';
-import 'package:thppy_administration/services/youth_services.dart';
+import 'package:thppy_administration/screens/youth/youth.dart';
+import 'package:thppy_administration/services/db/youth_services.dart';
 
 PreferredSize appBarWidget({required BuildContext context}) {
   final currentUser = Provider.of<CurrentUser?>(context);

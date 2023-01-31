@@ -17,26 +17,6 @@ class Constants {
       route: '/youth',
     ),
     Draw(
-      title: 'Countries',
-      icon: Icons.flag,
-      route: '/countries',
-    ),
-    Draw(
-      title: 'Regions',
-      icon: Icons.location_city,
-      route: '/regions',
-    ),
-    Draw(
-      title: 'Centers',
-      icon: Icons.school,
-      route: '/centers',
-    ),
-    Draw(
-      title: 'Ambassadors',
-      icon: Icons.person,
-      route: '/ambassadors',
-    ),
-    Draw(
       title: 'Blogs',
       icon: Icons.book,
       route: '/blogs',
@@ -47,24 +27,9 @@ class Constants {
       route: '/bootcamps',
     ),
     Draw(
-      title: 'Bootcamp Events',
-      icon: Icons.event,
-      route: '/bootcamp_events',
-    ),
-    Draw(
-      title: 'Chats',
-      icon: Icons.chat,
-      route: '/chats',
-    ),
-    Draw(
-      title: 'Comments',
-      icon: Icons.comment,
-      route: '/comments',
-    ),
-    Draw(
-      title: 'FAQ',
-      icon: Icons.help,
-      route: '/faq',
+      title: 'Trainers',
+      icon: Icons.person,
+      route: '/trainers',
     ),
     Draw(
       title: 'Gallery',
@@ -72,24 +37,14 @@ class Constants {
       route: '/gallery',
     ),
     Draw(
-      title: 'Interactions',
-      icon: Icons.touch_app,
-      route: '/interactions',
-    ),
-    Draw(
       title: 'Linkages',
       icon: Icons.link,
       route: '/linkages',
     ),
     Draw(
-      title: 'Media',
-      icon: Icons.image,
-      route: '/media',
-    ),
-    Draw(
-      title: 'Messages',
+      title: 'Feedback',
       icon: Icons.message,
-      route: '/messages',
+      route: '/feedback',
     ),
     Draw(
       title: 'Quiz',
@@ -97,24 +52,9 @@ class Constants {
       route: '/quiz',
     ),
     Draw(
-      title: 'Quiz Groups',
-      icon: Icons.group,
-      route: '/quiz_groups',
-    ),
-    Draw(
-      title: 'Quiz Responses',
-      icon: Icons.check_circle,
-      route: '/quiz_responses',
-    ),
-    Draw(
       title: 'Services',
       icon: Icons.local_hospital,
       route: '/services',
-    ),
-    Draw(
-      title: 'Social Media',
-      icon: Icons.share,
-      route: '/social_media',
     ),
     Draw(
       title: 'Social Media Analysis',
@@ -127,19 +67,14 @@ class Constants {
       route: '/teams',
     ),
     Draw(
-      title: 'Trainers',
-      icon: Icons.person,
-      route: '/trainers',
+      title: 'FAQ',
+      icon: Icons.help,
+      route: '/faq',
     ),
     Draw(
       title: 'About',
       icon: Icons.info,
       route: '/about',
-    ),
-    Draw(
-      title: 'Permissions',
-      icon: Icons.lock,
-      route: '/permissions',
     ),
   ];
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thppy_administration/responsive.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 import 'package:thppy_administration/screens/desktop/desktop_login.dart';
 import 'package:thppy_administration/screens/mobile/mobile_login.dart';
 
@@ -13,9 +13,9 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Responsive(
-      mobile: MobileLogin(),
-      desktop: DesktopLogin(),
+    return ScreenTypeLayout(
+      mobile: const MobileLogin(),
+      desktop: const DesktopLogin(),
     );
   }
 }

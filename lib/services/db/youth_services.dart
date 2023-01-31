@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:thppy_administration/models/Youth.dart';
+import 'package:thppy_administration/screens/youth/youth.dart';
 
 class YouthServices {
   final String? uid;

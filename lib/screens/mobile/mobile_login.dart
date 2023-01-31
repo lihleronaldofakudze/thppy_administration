@@ -1,5 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:thppy_administration/services/auth_services.dart';
@@ -59,13 +57,11 @@ class _MobileLoginState extends State<MobileLogin> {
                             children: [
                               TextBoxWidget(
                                 label: 'Email Address',
-                                isPassword: false,
                                 controller: _emailController,
                                 type: TextInputType.emailAddress,
                               ),
                               TextBoxWidget(
                                 label: 'Password',
-                                isPassword: true,
                                 controller: _passwordController,
                                 type: TextInputType.visiblePassword,
                               ),

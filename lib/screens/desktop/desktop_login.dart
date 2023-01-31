@@ -16,6 +16,7 @@ class _DesktopLoginState extends State<DesktopLogin> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool rememberMe = false;
+  bool _isLoading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,13 +59,11 @@ class _DesktopLoginState extends State<DesktopLogin> {
                                   children: [
                                     TextBoxWidget(
                                       label: 'Email Address',
-                                      isPassword: false,
                                       controller: _emailController,
                                       type: TextInputType.emailAddress,
                                     ),
                                     TextBoxWidget(
                                       label: 'Password',
-                                      isPassword: true,
                                       controller: _passwordController,
                                       type: TextInputType.visiblePassword,
                                     ),
@@ -117,8 +116,12 @@ class _DesktopLoginState extends State<DesktopLogin> {
                                       width: double.infinity,
                                       child: ElevatedButton(
                                         onPressed: _login,
-                                        child:
-                                            const Text('Access your account'),
+                                        child: _isLoading
+                                            ? const CircularProgressIndicator(
+                                                color: Colors.white,
+                                                strokeWidth: 2,
+                                              )
+                                            : const Text('Access your account'),
                                       ),
                                     ),
                                     const SizedBox(
@@ -157,6 +160,9 @@ class _DesktopLoginState extends State<DesktopLogin> {
   }
 
   _login() async {
+    setState(() {
+      _isLoading = true;
+    });
     if (_emailController.text.isNotEmpty &&
         _passwordController.text.isNotEmpty) {
       final result = await AuthServices().login(
@@ -165,8 +171,14 @@ class _DesktopLoginState extends State<DesktopLogin> {
       );
 
       if (result != null) {
+        setState(() {
+          _isLoading = false;
+        });
         Navigator.pushNamed(context, '/');
       } else {
+        setState(() {
+          _isLoading = false;
+        });
         AwesomeDialog(
           width: MediaQuery.of(context).size.width / 2,
           context: context,
@@ -177,6 +189,9 @@ class _DesktopLoginState extends State<DesktopLogin> {
         ).show();
       }
     } else {
+      setState(() {
+        _isLoading = false;
+      });
       AwesomeDialog(
         width: MediaQuery.of(context).size.width / 2,
         context: context,

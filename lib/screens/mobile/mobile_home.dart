@@ -16,13 +16,6 @@ class _MobileHomeState extends State<MobileHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
-        label: const Text('Add New Country'),
-        icon: const Icon(
-          Icons.add_rounded,
-        ),
-      ),
       drawer: const DrawerWidget(),
       appBar: AppBar(
         title: const Text('Thppy Administration'),
